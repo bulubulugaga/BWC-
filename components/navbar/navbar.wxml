@@ -1,0 +1,12 @@
+<!--components/navbar/navbar.wxml-->
+<view class="navbar">
+    <view class="demo phone" style='background: {{bgColor}};height: {{demo.height}}px; padding-top: {{demo.top}}px;padding-bottom: 8px; font-size: {{size}}; color: {{color}}'>
+        <view wx:if="{{leftIconShow}}" class="left" style='top:{{demo.top}}px' bindtap="leftFun">
+            <van-icon name="{{leftIcon}}" size="{{iconSize}}" color="{{iconColor}}" />
+        </view>  
+        {{ title }}
+    </view>
+    
+    <!-- 占位 -->
+    <view wx:if="{{blankShow}}" style='height: {{demo.height}}px; padding-top: {{demo.top}}px; padding-bottom: 8px'></view>
+</view>

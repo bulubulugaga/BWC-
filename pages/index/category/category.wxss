@@ -1,0 +1,37 @@
+/* pages/index/category/category.wxss */
+.category-top {
+  padding-top: 40rpx;
+  padding-bottom: 24rpx;
+}
+.category_nav .box image {
+  width: 80rpx;
+  height: 72rpx;
+}
+.business-title {
+  margin: 50rpx auto 0;
+}
+.type-title-active {
+  color: #FFB957;
+}
+.business-btn {
+  text-align: center;
+  width: 216rpx;
+  height: 40rpx;
+  line-height: 36rpx;
+  color: #AAAAAA;
+  background: #E6E6E6;
+  border: 1px solid #E6E6E6;
+  border-radius: 12rpx;
+  -webkit-border-radius: 12rpx;
+  -moz-border-radius: 12rpx;
+  -ms-border-radius: 12rpx;
+  -o-border-radius: 12rpx;
+}
+.businessBtnActive {
+  color: #151414;
+  background: #F9F8CD;
+  border: 1px solid #151414;
+}
+.category-bill {
+  margin-top: 26rpx;
+}

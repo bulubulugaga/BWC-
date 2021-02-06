@@ -1,0 +1,62 @@
+<!-- 邀请有奖 -->
+<view class="notice">
+
+  <navbar title="邀请有奖" color="white" bgColor="#F36444" />
+
+  <!-- 背景图 -->
+  <image class="in-bg w-vw pa" src="/static/images/user/invit_bg.jpg" mode="widthFix" />
+  
+  <!-- 二维码 -->
+  <view class="in-item in-item-code w-con">
+    <view class="in-item-title pr txt-center">
+      <image class="in-item-title-bg pa" src="/static/images/user/invit_title.png" />
+      <view class="in-item-title-txt pa white">分享{{ name }}</view>
+    </view>
+    <view class="in-item-content in-item-code-content bg-white pr">
+      <view class="in-item-code-img">
+        <image class="w h" src="{{ codeImg }}" />
+      </view>
+      <view class="in-item-code-line txt-center">
+        <image src="/static/images/user/invit_num.png" mode="widthFix" />
+      </view>
+      <view class="in-item-code-txt flex-cover f26 txt-center">
+        <view><text>分享链接\n给好友</text></view>
+        <view><text>好友接受\n邀请</text></view>
+        <view><text>好友登录\n并完成注册</text></view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 按钮 -->
+  <view class="in-btn w-con pr">
+    <image class="in-btn-bg pa" src="/static/images/user/invit_btn.png"  />
+    <button class="in-btn-txt pa txt-center FB w" open-type="share">立即分享</button>
+  </view>
+
+  <!-- 人数 -->
+  <view class="in-item in-item-per w-con">
+    <view class="in-item-title pr txt-center">
+      <image class="in-item-title-bg pa" src="/static/images/user/invit_title.png" />
+      <view class="in-item-title-txt pa white">邀请人数</view>
+    </view>
+    <view class="in-item-content in-item-per-content bg-white pr flex-middle">
+      <view class="f34">邀请人数</view>
+      <view class="ml-auto">
+        <text class="f46 FB">{{ person }}</text><text class="f34">人</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 规则 -->
+  <view class="in-item in-item-rule w-con">
+    <view class="in-item-title pr txt-center">
+      <image class="in-item-title-bg pa" src="/static/images/user/invit_title.png" />
+      <view class="in-item-title-txt pa white">活动规则</view>
+    </view>
+    <view class="in-item-content in-item-rule-content bg-white pr">
+      {{ rule }}
+    </view>
+  </view>
+
+</view>
+

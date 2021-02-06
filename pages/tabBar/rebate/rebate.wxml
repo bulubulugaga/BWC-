@@ -1,0 +1,26 @@
+<!--pages/tabBar/rebate/rebate.wxml-->
+<!-- 返利餐 -->
+
+
+<view class="container">
+  
+  <navbar title="{{ name }}返利餐" leftIconShow="{{false}}" bgColor="#F9F8CD"></navbar>
+  
+  <!-- 霸王餐和返利餐 -->
+  <indexBg 
+    id="bg" 
+    area="{{ area }}" 
+    advertise="{{ advertise }}" 
+    hotTitle="优选好店"
+    hotShop="{{ hotShop }}"
+    business="{{ business }}"
+    type="2"
+    bind:changeAble = "changeOnlyAble"
+  >
+  </indexBg>
+
+  <!-- 返回顶部 -->
+  <backTop />
+
+</view>
+

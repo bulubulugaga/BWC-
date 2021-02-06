@@ -1,0 +1,12 @@
+/* pages/order/comment/comment.wxss */
+.order-img {
+  padding: 20rpx 30rpx;
+  min-height: 500rpx;
+}
+.order-img-title {
+  margin-bottom: 50rpx;
+}
+
+.order-img-btn {
+  margin-top: 100rpx;
+}

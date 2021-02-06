@@ -1,0 +1,63 @@
+/* components/busiList/busiList.wxss */
+.business-list {
+  margin-bottom: 20rpx;
+  padding: 16rpx 0 16rpx 18rpx;
+}
+.business-list-img image {
+  width: 110rpx;
+  height: 110rpx;
+}
+.business-list-middle-discri {
+  color: #FFB957;
+  border: 1rpx solid #FFB957;
+  padding: 0 10rpx;
+  height: 38rpx;
+  line-height: 32rpx;
+  border-radius: 16rpx;
+  -webkit-border-radius: 16rpx;
+  -moz-border-radius: 16rpx;
+  -ms-border-radius: 16rpx;
+  -o-border-radius: 16rpx;
+  text-align: center;
+  margin: 6rpx 0 12rpx;
+}
+.business-list-middle-num {
+  width: 180rpx;
+  height: 16rpx;
+  line-height: 16rpx;
+  background: #F9F8CD;
+  border-radius: 8rpx;
+  -webkit-border-radius: 8rpx;
+  -moz-border-radius: 8rpx;
+  -ms-border-radius: 8rpx;
+  -o-border-radius: 8rpx;
+  text-align: center;
+}
+.business-list-type image {
+  width: 182rpx;
+  height: 48rpx;
+  top: 0;
+  right: 0;
+}
+.business-list-right {
+  right: 22rpx;
+  top: 68rpx;
+}
+
+.order-bottom {
+  margin-top: 20rpx;
+  height: 74rpx;
+  border-top: 1rpx solid #E0E0E0;
+}
+.order-list-btn {
+  width: 188rpx;
+  height: 50rpx;
+  line-height: 46rpx;
+  background: #FEE101;
+  border: 1rpx solid #151414;
+  border-radius: 16rpx;
+  -webkit-border-radius: 16rpx;
+  -moz-border-radius: 16rpx;
+  -ms-border-radius: 16rpx;
+  -o-border-radius: 16rpx;
+}

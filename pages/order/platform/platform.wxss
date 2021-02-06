@@ -1,0 +1,19 @@
+/* pages/order/platform/platform.wxss */
+page {
+  background: white;
+}
+.platform-title {
+  line-height: 80rpx;
+}
+.platform-txt {
+  width: 690rpx;
+  height: 330rpx;
+  background: #F4F4F4;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  font-size: 26rpx;
+  -webkit-border-radius: 16rpx;
+  -moz-border-radius: 16rpx;
+  -ms-border-radius: 16rpx;
+  -o-border-radius: 16rpx;
+}

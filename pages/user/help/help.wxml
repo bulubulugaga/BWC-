@@ -1,0 +1,60 @@
+<!--pages/user/help/heilp.wxml-->
+<view>
+  <navbar title="帮助中心"></navbar>
+  
+  <!-- nav -->
+  <view class="help-nav flex-cover f30 bg-white" style='top: {{ navbarHeight }}px'>
+    <view class="help-nav-item FB aaa {{ navIndex == index ? 'help-nav-item-active' : '' }}" 
+    wx:for="{{ navItem }}" wx:key="index" bindtap="chooseNav" data-index="{{ index }}">
+      {{ item.title }}
+    </view>
+  </view>
+  <!-- 占位 -->
+  <view class="help-blank"></view>
+
+  <!-- 问题 -->
+  <view wx:if="{{navIndex == 0}}" class="question bg-white border-ra-16 w-con mt30 mb30">
+    <van-cell 
+      is-link  
+      wx:for="{{ help }}"
+      wx:key="index"
+      title="{{ item.problem }}"
+      title-class="f26"
+      bindtap="toDetail"
+      data-index="{{ index }}"
+    />
+  </view>
+
+  <!-- 反馈 -->
+  <view wx:else class="idea mt30 w-con border-ra-16 bg-white pr">
+    <van-field
+      value="{{ message }}"
+      type="textarea"
+      placeholder="请输入您想反馈的内容"
+      maxlength="200"
+      border="{{ false }}"
+      show-word-limit
+      textareaHeight="430rpx"
+      custom-style="font-size: 30rpx;background:none;width:100%;height:100%;"
+      numStyle="font-size: 30rpx;color: #aaa;"
+      bind:input="inputChange"
+      data-model="message"
+    />
+    
+    <!-- 电话 -->
+    <view class="phone w-con mt30 border-ra-16 bg-white">
+      <van-field
+        value="{{ phone }}"
+        label="联系方式"
+        placeholder="请输入您的联系方式"
+        custom-style="font-size: 30rpx;background:none;width:100%;height:100%;"
+        bind:input="inputChange"
+        data-model="phone"
+      />
+    </view>
+
+    <!-- 按钮 -->
+    <view class="w-con btn mt40" bindtap="submit">提交</view>
+  </view>
+
+</view>

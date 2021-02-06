@@ -1,0 +1,9 @@
+<!--components/login/login.wxml-->
+<view wx:if="{{isShow}}" class="login" bindtap="closeLogin">
+  <view class="login-content" catchtap>
+    <image class="login-content-logo" src="{{ logo }}" />
+    <view class="login-content-name">\n{{ name }}提示：您需要先登录</view>
+    <view wx:if="{{ isAuth }}" class="login-content-btn" bindtap="login">登录</view>
+    <button wx:else class="login-content-btn" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">登录</button>
+  </view>
+</view>

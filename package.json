@@ -1,0 +1,15 @@
+{
+  "name": "bwc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vant/weapp": "^1.6.4",
+    "miniprogram-computed": "^2.2.0"
+  }
+}

@@ -1,0 +1,35 @@
+/* pages/user/wallet/wallet.wxss */
+.wallet-header {
+  width: 100vw;
+  height: 320rpx;
+}
+.wallet-header-img {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.wallet-header-con {
+  padding: 110rpx 40rpx 0 74rpx;
+}
+.widthdra-img {
+  width: 26rpx;
+}
+.withdrawal-input-w {
+  margin: 34rpx 0 30rpx;
+}
+.withdrawal-input {
+  font-size: 36rpx;
+  color: #474646;
+  font-weight: bold;
+}
+.withdrawal-line {
+  height: 2rpx;
+  background: #DDDDDD;
+  margin-bottom: 24rpx;
+}
+.withdrawal-btn {
+  margin-top: 58rpx;
+  margin-bottom :54rpx;
+}

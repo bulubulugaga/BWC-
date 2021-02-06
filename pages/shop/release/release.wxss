@@ -1,0 +1,41 @@
+/* pages/shop/release/release.wxss */
+.settled-label {
+  color: #000 !important;
+}
+.choose-p {  
+  padding: 10px 16px 0;
+}
+.choose-p-c {
+  padding-bottom: 14px;
+  border-bottom: 2rpx solid rgba(0, 0, 0, .04);
+}
+.choose-p-circle, .choose-p-img {
+  width: 30rpx;
+  height: 30rpx;
+}
+.choose-p-circle {
+  border: 1px solid #878787;
+}
+.choose-ping-img {
+  width: 248rpx;
+  margin-left: 16rpx;
+}
+.choose-p-title {
+  margin-bottom: 26rpx;
+}
+.release-remark {
+  padding: 10px 16px 38rpx;
+}
+.release-remark textarea {
+  width: 100%;
+  height: 262rpx;
+  font-size: 26rpx;
+  background: #F1F1F1;
+  margin-top: 22rpx;
+  padding: 16rpx 22rpx;
+  border-radius: 12rpx;
+  -webkit-border-radius: 12rpx;
+  -moz-border-radius: 12rpx;
+  -ms-border-radius: 12rpx;
+  -o-border-radius: 12rpx;
+}

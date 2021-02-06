@@ -1,0 +1,8 @@
+/* pages/user/clock/clock.wxss */
+.clock-cell-item {
+  height: 106rpx;
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+.clock-btn {
+  margin-top: 128rpx;
+}

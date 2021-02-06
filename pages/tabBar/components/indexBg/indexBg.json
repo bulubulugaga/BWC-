@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-notice-bar": "@vant/weapp/notice-bar/index",
+    "busiList": "/components/busiList/busiList",
+    "mySwiper": "/components/swiper/swiper"
+  }
+}

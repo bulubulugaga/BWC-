@@ -1,0 +1,140 @@
+/**app.wxss**/
+/* 全局css */
+/* 公共样式 */
+view,text,image,text,label,input,button,textarea,rich-text,table,tr,tb,th {margin: 0;padding: 0;box-sizing: border-box;}
+
+/* 内容区域 */
+page {
+	background: #F6F7F9;
+}
+.w-con {width: 690rpx; margin: 0 auto;}
+.w-con-p {width: 100vw; padding: 0 4%;}
+
+/* 文字 */
+.f20 {font-size: 20rpx;}
+.f22 {font-size: 22rpx;}
+.f24 {font-size: 24rpx;}
+.f26 {font-size: 26rpx;}
+.f28 {font-size: 28rpx;}
+.f30 {font-size: 30rpx;}
+.f32 {font-size: 32rpx;}
+.f34 {font-size: 34rpx;}
+.f36 {font-size: 36rpx;}
+.f46 {font-size: 46rpx;}
+.f48 {font-size: 48rpx;}
+.f60 {font-size: 60rpx;}
+.txt-center {text-align: center;}
+.txt-right {text-align: right;}
+.FB {font-weight: bold;}
+.ellipsis {white-space: nowrap;overflow: hidden;text-overflow:ellipsis;}
+.ellipsis-2 {display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 2;overflow: hidden;}
+.ellipsis-4 {display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 4;overflow: hidden;}
+input,textarea {font-size: 30rpx;line-height: normal;}
+.phone {
+	font-family:Monospaced Number,Chinese Quote,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif!important;
+}
+/* 颜色 */
+.white {color: #FFFFFF;}
+.bg-white {background-color: white;}
+.gray {color: gray;}
+.aaa {color: #AAAAAA;}
+.ccc {color: #ccc;}
+.c333 {color: #333333;}
+.c999 {color: #999999;}
+.bg-none{background: none !important;background-color: none !important;}
+.opacity {opacity: 0;}
+
+/* 布局 */
+.flex {display: flex;display: -webkit-flex;}
+.flex-middle {
+	/* 垂直居中 */
+	display: flex;display: -webkit-flex;align-items: center;
+}
+.flex-center {
+	/* 水平居中 */
+	display: flex;display: -webkit-flex;justify-content: center;
+}
+.flex-MC {
+	/* 居中 */
+	display: flex;display: -webkit-flex;align-items: center;justify-content: center;
+}
+.flex-cover {
+	/* 平铺 */
+	display: flex;display: -webkit-flex;justify-content: space-between;
+}
+.flex-wrap {
+	/* 可换行 */
+	display: flex; flex-wrap: wrap;
+}
+.flex-1 {flex: 1;}
+
+/* 定位 */
+.pr {position: relative;}
+.pa {position: absolute;}
+
+/* 边距 */
+.w-vw{width: 100vw !important;}
+.w {width: 100%;}
+.w2 {width: 50%;}
+.h {height: 100%;}
+.auto {margin: 0 auto;}
+.mt6 {margin-top: 6rpx;}
+.mt10 {margin-top: 10rpx;}
+.mt20 {margin-top: 20rpx;}
+.mt30 {margin-top: 30rpx;}
+.mt40 {margin-top: 40rpx;}
+.mb10 {margin-bottom: 10rpx;}
+.mb20 {margin-bottom: 20rpx;}
+.mb30 {margin-bottom: 30rpx;}
+.mb40 {margin-bottom: 40rpx;}
+.ml-auto {margin-left: auto;}
+.ml10 {margin-left: 10rpx;}
+.ml20 {margin-left: 20rpx;}
+.ml30 {margin-left: 30rpx;}
+.mr10 {margin-right: 10rpx;}
+.mr20 {margin-right: 20rpx;}
+.mr30 {margin-right: 30rpx;}
+.pt20 {padding-top: 20rpx;}
+.pt40 {padding-top: 40rpx;}
+.pt50 {padding-top: 50rpx;}
+.pb30 {padding-bottom: 30rpx;}
+.pl20 {padding-left: 20rpx;}
+.pl30 {padding-left: 30rpx;}
+.pl40 {padding-left: 40rpx;}
+.pr30 {padding-right: 30rpx;}
+.pr40 {padding-right: 40rpx;}
+.pr50 {padding-right: 50rpx;}
+
+/* 边框 */
+.circle {border-radius: 50%;}
+.border-ra-16 {border-radius: 16rpx;}
+.border-ra-30 {border-radius: 30rpx;}
+.b-show-list {box-shadow: 2rpx 2rpx 14rpx rgba(0,0,0,.05),-2rpx 0 14rpx rgba(0,0,0,.05);}
+	 
+ 
+/* 图片先拉伸显示问题 */
+image {height: auto}
+
+/* 按钮 */
+.btn { 
+	height: 80rpx; 
+	line-height: 80rpx; 
+	text-align: center;
+	background: #F9F8CD; 
+	border: 1rpx solid #191817; 
+	border-radius: 32rpx; 
+	-webkit-border-radius: 32rpx; 
+	-moz-border-radius: 32rpx; 
+	-ms-border-radius: 32rpx; 
+	-o-border-radius: 32rpx; 
+	font-size: 30rpx;
+}
+
+/* 超出部分 */
+.hidden{overflow: hidden;}
+
+/* 空状态 */
+.null-img {
+	width: 46%;
+}
+

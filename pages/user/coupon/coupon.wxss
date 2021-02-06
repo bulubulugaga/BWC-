@@ -1,0 +1,46 @@
+/* pages/user/coupon/coupon.wxss */
+/* 选项卡 */
+.coupon-type {
+  padding: 0 150rpx;
+  padding-top: 24rpx;
+  margin-bottom: 30rpx;
+}
+.coupon-type-item {
+  padding-bottom: 14rpx;
+}
+.coupon-type-item-active {
+  color: #1D1C1C;
+  border-bottom: 4rpx solid #FEE101;
+}
+
+/* 优惠券 */
+.coupon-item {
+  height: 190rpx;
+  margin-bottom: 30rpx;
+}
+.coupon-item-bg {
+  width: 100%;
+  height: 190rpx;
+  z-index: -1;
+}
+.coupon-item-left {
+  height: 136rpx;
+  width: 204rpx;
+  border-right: 2rpx dashed #e4e4e4;
+  margin-top: 26rpx;
+  padding-top: 30rpx;
+}
+.coupon-item-left-t2 {
+  margin-top: 14rpx;
+}
+.coupon-item-middle {
+  color: #E9AE60;
+  padding-top: 52rpx;
+}
+.coupon-item-middle-t2 {
+  margin-top: 12rpx;
+}
+.coupon-item-right {
+  width: 100rpx;
+  height: 190rpx;
+}

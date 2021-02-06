@@ -1,0 +1,25 @@
+<!-- 充值 -->
+<view>
+
+  <navbar title="充值"></navbar>
+
+  <!-- 充值 -->
+  <view class="w-con">
+    <view class="f24 mt30" style="opacity:0;">充值金额</view>
+    <input class="w" type="number" value="{{ withdrawal }}" placeholder="请输入充值金额"
+      class="withdrawal-input-w withdrawal-input" placeholder-class="withdrawal-input"
+      bind:input="inputChange" data-model="withdrawal" />
+    <view class="withdrawal-line"></view>
+  </view>
+
+  <!-- 按钮 -->
+  <view class="withdrawal-btn btn w-con" bindtap="submit">
+    确认充值
+  </view>
+
+  <!-- 提示 -->
+  <!-- <view class="wallet-tip f24 aaa w-con">
+    10元即可提现，提现将收取1％的提现手续费，每人每天限提现1次，为保护您的账户安全，一次性提现30000元将需要人工审核， 审核通过后即刻到账。
+  </view> -->
+
+</view>

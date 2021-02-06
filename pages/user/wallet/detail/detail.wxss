@@ -1,0 +1,5 @@
+/* pages/user/wallet/detail/detail.wxss */
+.detail-item {
+  border-bottom: 1rpx solid #DDD;
+  padding: 30rpx 4%;
+}

@@ -1,0 +1,9 @@
+/* pages/user/agent/agent.wxss */
+.settled_bg {
+  display: block;
+}
+.settled-btn {
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 36rpx;
+}

@@ -1,0 +1,22 @@
+/* pages/user/serve/serve.wxss */
+.header-bg image, .header-bg image {
+  width: 100vw;
+  height: 60vw;
+}
+.serve-wrap {
+  padding-top: 50rpx;
+  padding-bottom: 58rpx;
+}
+.serve-wrap-btn {
+  width: 530rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  margin: 58rpx auto;
+}
+.serve-wrap-btn button {
+  width: 100%;
+  height: 100%;
+  line-height: 100rpx;
+  background: none;
+  border: none;
+}

@@ -1,0 +1,8 @@
+<!-- 轮播图 -->
+<view class="swiper w-con">
+  <swiper autoplay circular>
+    <swiper-item wx:for="{{swiper}}" wx:key="unique" bindtap="toDetail" data-id="{{ item.id }}">
+      <image src="{{item.img}}" mode="aspectFill" />
+    </swiper-item>
+  </swiper>
+</view>

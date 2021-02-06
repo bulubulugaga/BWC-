@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "payType": "/components/payType/payType"
+  }
+}

@@ -1,0 +1,8 @@
+<!-- 公告 -->
+<view class="notice">
+
+  <navbar title="{{ meta }}" />
+
+  <notice-list list="{{ list }}" bind:toDetail="toDetail" />
+
+</view>

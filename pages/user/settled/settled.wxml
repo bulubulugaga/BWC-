@@ -1,0 +1,10 @@
+<!-- 商家入驻 -->
+<view>
+
+  <navbar title="商家入驻"></navbar>
+
+  <image class="settled_bg w-con" src="/static/images/user/settled_bg.jpg" mode="widthFix" />
+
+  <view class="settled-btn w-con btn FB mt30" bindtap="toForm">立即入驻</view>
+
+</view>

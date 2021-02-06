@@ -1,0 +1,52 @@
+<!--pages/user/law/law.wxml-->
+<view>
+  <navbar title="每天提醒我吃饭"></navbar>
+  
+  <view class="clock-wrap w-con mt30 bg-white border-ra-16">
+    <van-cell custom-class="clock-cell-item flex-middle" is-link bindtap="showPopup" data-index="{{ index }}" wx:for="{{ clock }}" wx:key="index">
+      <view slot="title" class="flex-middle">
+        <view class="van-cell-text f30">{{ item.title }}</view>
+        <view class="f30 ml20">{{ item.time }}</view>
+      </view>
+    </van-cell>
+  </view>
+
+  <view class="clock-btn btn w-con" bindtap="submit">
+    确认
+  </view>
+
+  <!-- 中午时间 -->
+  <van-popup 
+    show="{{ isShowATime }}" 
+    data-type="isShowATime"
+    bind:close="closePopup"
+    position="bottom"
+    custom-style="height: 700rpx;padding: 20rpx 30rpx;">
+    <van-datetime-picker
+      type="time"
+      min-hour="10"
+      max-hour="13"
+      data-type="isShowATime"
+      bind:confirm="chooseTime"
+      bind:cancel="closePopup"
+    />
+  </van-popup>
+
+  <!-- 下午时间 -->
+  <van-popup 
+    show="{{ isShowMTime }}" 
+    data-type="isShowMTime"
+    bind:close="closePopup"
+    position="bottom"
+    custom-style="height: 700rpx;padding: 20rpx 30rpx;">
+    <van-datetime-picker
+      type="time"
+      min-hour="14"
+      max-hour="21"
+      data-type="isShowMTime"
+      bind:confirm="chooseTime"
+      bind:cancel="closePopup"
+    />
+  </van-popup>
+
+</view>

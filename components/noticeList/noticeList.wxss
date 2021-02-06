@@ -1,0 +1,15 @@
+/* components/noticeList/noticeList.wxss */
+.notice-item {
+  padding: 18rpx 36rpx 30rpx 24rpx;
+}
+.notice-item-left {
+  width: 440rpx;
+  min-height: 130rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.notice-item-right {
+  width: 124rpx;
+  height: 124rpx;
+}

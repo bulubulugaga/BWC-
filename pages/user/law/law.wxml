@@ -1,0 +1,7 @@
+<!-- 法律 -->
+<view>
+  <navbar title="法律声明"></navbar>
+  <view class="law-content w-con f28">
+    {{ law }}
+  </view>
+</view>

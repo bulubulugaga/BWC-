@@ -1,0 +1,30 @@
+<!-- 分类 -->
+<view class="notice">
+
+  <navbar title="分类" />
+
+  <!-- 头部 -->
+  <view class="category-top bg-white">
+    <!-- 导航菜单 -->
+    <scroll-view class="category_nav w-con" scroll-x="{{ true }}" enhanced show-scrollbar="{{false}}">
+      <view class="flex-cover" style='width: calc(106rpx * {{ category.length }} + 60rpx)'>
+        <view class="box txt-center" wx:for="{{ category }}" wx:key="unique"
+          bindtap="toCategory" data-index="{{ index }}">
+          <image src="{{ item.img }}" mode="" />
+          <view class="f26 {{ categoryIndex == index ? 'type-title-active' : '' }}">{{ item.type_title }}</view>
+        </view>
+      </view>
+    </scroll-view>
+    <!-- 距离 -->
+    <view class="business-title flex-middle flex-cover w-con">
+      <view class="business-distri-intro f30">距离最近</view>
+      <view class="business-btn f24  {{ onlyAble ? 'businessBtnActive' : '' }}" bindtap="changeOnlyAble">仅显示可接单商家</view>
+    </view>
+  </view>
+
+  <!-- 订单 -->
+  <view class="category-bill w-con">
+    <busiList type="-1" list="{{ list }}" />
+  </view>
+
+</view>

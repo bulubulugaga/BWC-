@@ -1,0 +1,86 @@
+{
+  "pages": [
+    "pages/tabBar/index/index",
+    "pages/tabBar/rebate/rebate",
+    "pages/tabBar/order/order",
+    "pages/tabBar/profile/profile",
+    "pages/user/vip/vip",
+    "pages/user/setting/setting",
+    "pages/user/law/law",
+    "pages/user/help/help",
+    "pages/user/help/helpDetail/helpDetail",
+    "pages/user/serve/serve",
+    "pages/user/clock/clock",
+    "pages/user/wallet/wallet",
+    "pages/user/wallet/detail/detail",
+    "pages/shop/shop",
+    "pages/user/coupon/coupon",
+    "pages/index/notice/notice",
+    "pages/user/invited/invited",
+    "pages/user/settled/settled",
+    "pages/user/agent/agent",
+    "pages/user/settled/form/form",
+    "pages/user/agent/form/form",
+    "pages/index/category/category",
+    "pages/index/area/area",
+    "pages/index/city/city",
+    "pages/order/detail/detail",
+    "pages/order/orderImg/orderImg",
+    "pages/order/comment/comment",
+    "pages/shop/release/release",
+    "pages/order/platform/platform",
+    "pages/index/search/search",
+    "pages/user/complaint/complaint",
+    "pages/index/notice/detail/detail",
+    "pages/index/bannerDetail/bannerDetail",
+    "pages/user/wallet/recharge/recharge"
+  ],
+  "window": {
+    "navigationStyle": "custom",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#AAAAAA",
+    "selectedColor": "#151414",
+    "list": [
+      {
+        "pagePath": "pages/tabBar/index/index",
+        "text": "霸王餐",
+        "iconPath": "/static/images/tabBar/tabbar_icon01.png",
+        "selectedIconPath": "/static/images/tabBar/tabbar_icon01_1.png"
+      },
+      {
+        "pagePath": "pages/tabBar/rebate/rebate",
+        "text": "返利餐",
+        "iconPath": "/static/images/tabBar/tabbar_icon02.png",
+        "selectedIconPath": "/static/images/tabBar/tabbar_icon02_1.png"
+      },
+      {
+        "pagePath": "pages/tabBar/order/order",
+        "text": "订单",
+        "iconPath": "/static/images/tabBar/tabbar_icon03.png",
+        "selectedIconPath": "/static/images/tabBar/tabbar_icon03_1.png"
+      },
+      {
+        "pagePath": "pages/tabBar/profile/profile",
+        "text": "我的",
+        "iconPath": "/static/images/tabBar/tabbar_icon04.png",
+        "selectedIconPath": "/static/images/tabBar/tabbar_icon04_1.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "navbar": "/components/navbar/navbar",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-cell": "@vant/weapp/cell/index"
+  },
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  }
+}

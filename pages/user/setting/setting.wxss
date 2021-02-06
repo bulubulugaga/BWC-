@@ -1,0 +1,11 @@
+/* pages/user/setting/setting.wxss */
+.setting-top {
+  margin: 30rpx auto 44rpx;
+}
+.setting-top-item1-img {
+  width: 60rpx;
+  height: 60rpx;
+}
+.mr44 {
+  margin-right: 44rpx;
+}

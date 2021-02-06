@@ -1,0 +1,37 @@
+<!-- 商家中心 -->
+
+<view>
+
+  <navbar title="商家中心"></navbar>
+
+  <!-- 白色区域包起来 -->
+  <view class="bg-white">
+    <mySwiper />
+    <!-- 发布任务 -->
+    <image class="add-task-img" src="/static/images/shop/add-task.png" mode="widthFix" bindtap="toRelease" />
+    <!-- 中间操作区 -->
+    <view class="w-con flex-middle">
+      <image class="edit-img" src="/static/images/shop/edit.png" mode="widthFix" bindtap="editShop" />
+      <view class="f30 flex-middle" bindtap="editShop">修改店铺资料</view>
+      <image class="edit-img ml-auto" src="/static/images/shop/gong.png" mode="widthFix" bindtap="toNotice" />
+      <view class="f30 flex-middle" bindtap="toNotice">公告通知</view>
+      <view class="notice-num f26 flex-middle" bindtap="toNotice">{{ noticeNum }}</view>
+    </view>
+    <!-- 选项卡 -->
+    <view class="good-type flex-cover auto">
+      <view class="good-type-item f26 aaa {{ navIndex == index ? 'good-type-item-active' : '' }}" 
+        wx:for="{{ nav }}" wx:key="index" bindtap="clickNav" data-index="{{ index }}">
+        {{item.title}}({{item.num}})
+      </view>
+    </view>
+  </view>
+
+  <!-- 订单 -->
+  <view class="w-con mt30">
+    <busiList list="{{ list }}" type="{{ nav[navIndex].title }}" />
+  </view>
+  
+  <!-- 返回顶部 -->
+  <backTop bottom="134rpx" />
+
+</view>

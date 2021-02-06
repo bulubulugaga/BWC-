@@ -1,0 +1,32 @@
+<!-- 城市选择 -->
+<view>
+  <navbar title="城市选择"></navbar>
+  
+  <!-- 搜索 -->
+  <view class="area-left flex-middle f26 w-con">
+    <image class="area-left-search" src="/static/images/tabBar/search.png" mode="widthFix" />
+    <input class="area-left-input" type="text" placeholder="请输入城市名称进行选择" value="{{ key }}"
+      bind:input="inputChange" data-model="key" bindconfirm="searchKey" />
+  </view>
+
+  <!-- 当前定位 -->
+  <view class="position w-con-p">
+    <view class="position-title f26 aaa">当前定位</view>
+    <view class="flex-middle mt30">
+      <image bindtap="chooseCity" data-row="{{ position }}" class="position-img" src="/static/images/index/position.png" mode="widthFix"  />
+      <text bindtap="chooseCity" data-row="{{ position }}">{{ position.city }}</text>
+      <image bindtap="newLocation" class="position-img ml-auto" src="/static/images/index/load.png" mode="widthFix"  />
+      <text bindtap="newLocation">重新定位</text>
+    </view>
+  </view>
+
+  <!-- 城市列表 -->
+  <view class="nearby w-con f30" wx:for="{{ list }}" wx:key="index">
+    <view class="nearby-title f26">{{ item.initial }}</view>
+    <view class="nearby-item" wx:for="{{ item.citys }}" wx:for-item="city" wx:key="index"
+      bindtap="chooseCity" data-row="{{ city }}">
+      {{ city.fullname }}
+    </view>
+  </view>
+
+</view>

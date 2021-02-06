@@ -1,0 +1,87 @@
+<!--pages/tabBar/profile/profile.wxml-->
+<view class="content">
+
+  <navbar title="我的" leftIconShow="{{false}}" bgColor="none" blankShow="{{ false }}"></navbar>
+  
+  <!-- 头部 -->
+  <view class="header" style='height:calc({{navHeight}}px + 392rpx'>
+    <image class="header-bg pa" src="/static/images/tabBar/profile_bg.png" />
+    <view class="header-user pa bg-white border-ra-16 flex-cover">
+      <view class="header-user-left txt-center">
+        <image class="header-user-aver circle" src="{{ user.avatarUrl }}" mode="aspectFill" />
+        <view class="header-user-name f30">{{ user.nickName }}</view>
+        <view wx:if="{{ isLogin }}" class="header-user-vip flex-middle f22">
+          <view class="flex-middle">
+            <image class="header-user-vip-img" src="/static/images/tabBar/vip.png" />
+          </view>
+          <view class="flex-middle">
+            <!-- <text wx:if="{{ user.vip }}">黄金会员</text>
+            <text wx:else>普通会员</text> -->
+            <text>{{ user.vip }}</text>
+          </view>
+        </view>
+        <!-- 登录 -->
+        <view wx:else class="header-login f22 flex-MC" bindtap="showLogin">登录</view>
+      </view>
+      <view class="header-user-right flex-middle">
+        <view bindtap="toSetting">
+          <van-icon name="edit" size="50rpx" color="#1D1C1C" />
+          <view class="f22">编辑</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 占位 -->
+  <view style='height:calc({{navHeight}}px + 392rpx'></view>
+
+  <!-- 钱包 -->
+  <view class="profile-wallet w-con flex-middle" bindtap="jump" data-url="/pages/user/wallet/wallet">
+    <image class="profile-wallet-img" src="/static/images/tabBar/bi.png" />
+    <view class="f30 ml30">钱包</view>
+    <view class="f36 ml-auto FB">{{ user.balance || '0.00' }}</view>
+  </view>
+
+  <!-- 商家中心 -->
+  <view wx:if="{{ !box2[1].isShow }}" class="shop-center w-con pr" bindtap="toShop">
+    <image class="shop-center-bg pa" src="/static/images/tabBar/shop_center.png" />
+    <view class="shop-center-text pa f48">商家中心</view>
+  </view>
+
+  <!-- 操作区 -->
+  <view class="choice-box w-con border-ra-16 mt40 hidden">
+    <van-cell is-link border="{{ false }}" bindtap="jump" data-type="navigateTo" data-url="/pages/user/clock/clock">
+      <view slot="icon" class="choice-box-item-img flex-middle">
+        <image class="w" src="/static/images/userTool/icon01.png" mode="widthFix" />
+      </view>
+      <view slot="title" class="flex-middle">
+        <view class="van-cell-text f30">每天提醒我吃饭</view>
+        <view class="aaa f24 ml20">11: 00和17：00</view>
+      </view>
+    </van-cell>
+    <van-cell is-link title="{{ item.title }}" title-class="f30" border="{{ false }}" wx:for="{{ box1 }}" wx:key="index" 
+       bindtap="jump" data-type="{{ item.linkType || 'navigateTo' }}" data-url="{{ item.url }}">
+      <view slot="icon" class="choice-box-item-img flex-middle">
+        <image class="w" src="{{ item.img }}" mode="widthFix" />
+      </view>
+    </van-cell>
+  </view>
+  <view class="choice-box w-con border-ra-16 mt40 hidden">
+    <van-cell is-link title="{{ item.title }}" title-class="f30" border="{{ false }}" wx:if="{{ item.isShow }}"
+      wx:for="{{ box2 }}" wx:key="index" bindtap="jump" data-type="{{ item.linkType || 'navigateTo' }}" data-url="{{ item.url }}">
+      <view slot="icon" class="choice-box-item-img flex-middle">
+        <image class="w" src="{{ item.img }}" mode="widthFix" />
+      </view>
+    </van-cell>
+  </view>
+  <view class="choice-box w-con border-ra-16 mt40 mb40 hidden">
+    <van-cell is-link title="{{ item.title }}" title-class="f30" border="{{ false }}" 
+      wx:for="{{ box3 }}" wx:key="index" bindtap="jump" data-type="{{ item.linkType || 'navigateTo' }}" data-url="{{ item.url }}">
+      <view slot="icon" class="choice-box-item-img flex-middle">
+        <image class="w" src="{{ item.img }}" mode="widthFix" />
+      </view>
+    </van-cell>
+  </view>
+
+  <login />
+</view>

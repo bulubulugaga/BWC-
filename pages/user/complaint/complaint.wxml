@@ -1,0 +1,31 @@
+<!-- 投诉 -->
+<view>
+  <navbar title="投诉"></navbar>
+  
+  <view class="idea mt30 w-con border-ra-16 bg-white pr">
+    <van-field
+      model:value="{{ message }}"
+      type="textarea"
+      placeholder="请输入您想投诉的内容"
+      maxlength="-1"
+      border="{{ false }}"
+      textareaHeight="430rpx"
+      custom-style="font-size: 30rpx;background:none;width:100%;height:100%;"
+      numStyle="font-size: 30rpx;color: #aaa;"
+    />
+    
+    <!-- 电话 -->
+    <view class="phone w-con mt30 border-ra-16 bg-white">
+      <van-field
+        model:value="{{ phone }}"
+        label="联系方式"
+        placeholder="请输入您的联系方式"
+        custom-style="font-size: 30rpx;background:none;width:100%;height:100%;"
+      />
+    </view>
+
+    <!-- 按钮 -->
+    <view class="w-con btn mt40" bindtap="submit">提交</view>
+  </view>
+
+</view>

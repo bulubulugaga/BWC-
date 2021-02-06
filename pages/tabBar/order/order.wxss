@@ -1,0 +1,32 @@
+/* pages/tabBar/order/order.wxss */
+.top {
+  position: fixed;
+  z-index: 9999998;
+}
+.top-type {
+  background: #F9F8CD;
+  padding: 28rpx 104rpx;
+}
+.top-type-box {
+  width: 216rpx;
+  height: 66rpx;
+  line-height: 62rpx;
+  background: #FFFFFF;
+  border: 1rpx solid #fff;
+}
+.top-type-box-active {
+  background: #FEE101;
+  border: 1px solid #151414;
+}
+.top-type-order {
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.top-type-order-box-active {
+  color: #000;
+  font-weight: 700;
+  border-bottom: 4rpx solid #FEE101;
+}
+.top-blank {
+  height: 200rpx;
+}

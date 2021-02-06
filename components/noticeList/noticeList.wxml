@@ -1,0 +1,13 @@
+<!--components/noticeList/noticeList.wxml-->
+<view class="notice-list pb30">
+  <view class="notice-item flex-middle w-con border-ra-16 mt30 bg-white" wx:for="{{ list }}" wx:key="index"
+    bindtap="toDetail" data-id="{{ item.id }}">
+    <view class="notice-item-left">
+      <view class="f30">{{ item.users_notice || item.business_notice }}</view>
+      <view class="notice-item-time f22 aaa mt20">{{ item.create_time }}</view>
+    </view>
+    <view class="notice-item-right ml-auto flex-middle">
+      <image class="w h circle" src="{{ item.img }}" mode="aspectFill" />
+    </view>
+  </view>
+</view>

@@ -1,0 +1,7 @@
+/* pages/user/law/law.wxss */
+page {
+  background: white;
+}
+.law-content {
+  padding: 20rpx 0 30rpx;
+}

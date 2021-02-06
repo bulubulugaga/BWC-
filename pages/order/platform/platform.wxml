@@ -1,0 +1,12 @@
+<!-- 平台介入 -->
+<view>
+
+  <navbar title="平台介入" />
+
+  <view class="w-con">
+    <view class="platform-title f30">填写平台介入原因</view>
+    <textarea class="platform-txt" placeholder="请输入需要平台介入的原因" value="{{ msg }}" bindinput="input"></textarea>
+    <view class="btn mt30" bindtap="submit">确认介入</view>
+  </view>
+
+</view>

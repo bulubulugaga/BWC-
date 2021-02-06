@@ -1,0 +1,44 @@
+/* pages/user/agent/form/form.wxss */
+.agent-form {
+  padding-bottom: 8rpx;
+}
+.agent-btn {
+  margin-top: 114rpx;
+}
+
+/* 弹窗 */
+.popup-title {
+  height: 50rpx;
+}
+.popup-time-24 {
+  line-height: 60rpx;
+  padding-left: 122rpx;
+}
+.popup-time-wrap {
+  width: 100%;
+  height: 440rpx;
+}
+.scroll-time {
+  width: 48%;
+}
+.popup-time-line {
+  width: 4%;
+}
+.popup-time-box {
+  line-height: 50rpx;
+}
+.popup-time-red {
+  color: #FFB957;
+}
+.popup-time-btn {
+  width: 80%;
+  height: 80rpx;
+  margin: 20rpx auto 0;
+}
+
+.popup-city-wrap {
+  height: 500rpx;
+}
+.right-line {
+  border-right: 1rpx solid #ccc;
+} 

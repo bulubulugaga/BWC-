@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "mySwiper": "/components/swiper/swiper",
+    "backTop": "/pages/tabBar/components/backTop/backTop",
+    "busiList": "/components/busiListS/busiList"
+  }
+}

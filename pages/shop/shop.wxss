@@ -1,0 +1,36 @@
+/* pages/shop/shop.wxss */
+.bg-white {
+  padding-top: 26rpx;
+}
+.add-task-img {
+  display: block;
+  width: 708rpx;
+  margin: 46rpx auto 52rpx;
+}
+.edit-img {
+  width: 46rpx;
+  margin-right: 20rpx;
+}
+.notice-num {
+  height: 34rpx;
+  color: white;
+  padding: 0 10rpx;
+  margin-left: 18rpx;
+  background: #ED5454;
+  border-radius: 34rpx;
+  -webkit-border-radius: 34rpx;
+  -moz-border-radius: 34rpx;
+  -ms-border-radius: 34rpx;
+  -o-border-radius: 34rpx;
+}
+.good-type {
+  width: 530rpx;
+  margin-top: 60rpx;
+}
+.good-type-item {
+  padding-bottom: 14rpx;
+}
+.good-type-item-active {
+  color: #1D1C1C;
+  border-bottom: 4rpx solid #FEE101;
+}

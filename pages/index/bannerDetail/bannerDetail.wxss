@@ -1,0 +1,4 @@
+/* pages/index/bannerDetail/bannerDetail.wxss */
+.content {
+  padding: 40rpx 0;
+}

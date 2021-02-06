@@ -1,0 +1,17 @@
+<!--pages/user/law/law.wxml-->
+<view>
+  
+  <navbar title="在线客服"></navbar>
+
+  <view class="header-bg">
+    <image src="/static/images/user/serve_bg.png" mode="aspectFill" />
+  </view>
+
+  <view class="serve-wrap border-ra-16 bg-white w-con">
+    <view class="txt-center f30 FB">点击下方在线客服按钮</view>
+    <view class="serve-wrap-btn btn f36 FB">
+      <button open-type="contact">在线客服</button>
+    </view>
+  </view>
+
+</view>

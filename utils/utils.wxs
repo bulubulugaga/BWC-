@@ -1,0 +1,19 @@
+//过滤器 处理数据
+
+var filters = {
+
+  toFix: function(value) {
+    //返回两位小数点
+    return Number(value).toFixed(2);
+  },
+
+  toDouble: function(value) {
+    //缺位补零
+    return value < 10 ? '0' + value : value
+  }
+
+}
+
+
+
+module.exports = filters

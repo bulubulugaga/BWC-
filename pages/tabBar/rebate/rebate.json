@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "indexBg": "/pages/tabBar/components/indexBg/indexBg",
+    "backTop": "/pages/tabBar/components/backTop/backTop"
+  }
+}

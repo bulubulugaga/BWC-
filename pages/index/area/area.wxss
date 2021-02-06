@@ -1,0 +1,57 @@
+/* pages/index/area/area.wxss */
+page {
+  background: white;
+}
+.area-left {
+  flex: 1;
+  height: 80rpx;
+  background: #F6F7F9;
+  border-radius: 32rpx;
+  -webkit-border-radius: 32rpx;
+  -moz-border-radius: 32rpx;
+  -ms-border-radius: 32rpx;
+  -o-border-radius: 32rpx;
+  padding-left: 22rpx;
+  padding-right: 22rpx;
+  margin-top: 40rpx;
+}
+.area-left-area {
+  margin-right: 10rpx;
+  max-width: 140rpx;
+}
+.area-left-line {
+  width: 2rpx;
+  height: 32rpx;
+  background: #D7D7D7;
+  margin: 0 16rpx;
+}
+.area-left-search {
+  width: 26rpx;
+  margin-right: 10rpx;
+}
+.area-left-input {
+  font-size: 26rpx;
+  flex: 1;
+  padding-left: 20rpx;
+}
+
+.position {
+  margin-top: 22rpx;
+  padding-top: 20rpx;
+  padding-bottom: 28rpx;
+  border-top: 10rpx solid #F6F7F9;
+  border-bottom: 10rpx solid #F6F7F9;
+}
+.position-img {
+  width: 30rpx;
+  margin-right: 20rpx;
+}
+
+.nearby-title {
+  margin: 20rpx 0 10rpx;
+}
+.nearby-item {
+  line-height: 72rpx;
+  border-bottom: 2rpx solid #eee;
+  color: #0F0E0E;
+}

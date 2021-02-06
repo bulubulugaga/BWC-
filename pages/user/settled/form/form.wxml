@@ -1,0 +1,183 @@
+<!-- 商家入驻表单 -->
+<view>
+
+  <navbar title="{{ meta }}"></navbar>
+
+  <!-- 表单 -->
+  <view class="settled-form w-con mt30 bg-white border-ra-16">
+    <van-field
+      custom-style='{{ fieldStyle }}'
+      label="姓名"
+      label-class="settled-label"
+      model:value="{{ name }}"
+      placeholder="输入姓名"
+    />
+    <van-field
+      type="number"
+      custom-style='{{ fieldStyle }}'
+      label="电话"
+      label-class="settled-label"
+      model:value="{{ phone }}"
+      placeholder="输入联系电话"
+    />
+    <van-field
+      custom-style='{{ fieldStyle }}'
+      label="店铺名称"
+      label-class="settled-label"
+      model:value="{{ bussinessName }}"
+      placeholder="输入店铺名称"
+    />
+    <van-field
+      custom-style='{{ fieldStyle }}'
+      label="营业时间"
+      label-class="settled-label"
+      model:value="{{ time }}"
+      placeholder="选择营业时间"
+      readonly
+      is-link
+      bindtap="showPopup"
+      data-type="isShowTime"
+    />
+    <van-field
+      custom-style='{{ fieldStyle }}'
+      label="所在城市"
+      label-class="settled-label"
+      model:value="{{ city }}"
+      placeholder="选择所在城市"
+      readonly
+      is-link
+      bindtap="showPopup"
+      data-type="isShowCity"
+    />
+    <van-field
+      custom-style='{{ fieldStyle }}'
+      label="店铺经营品类"
+      label-class="settled-label"
+      model:value="{{ type }}"
+      placeholder="选择店铺经营品类"
+      readonly
+      is-link
+      bindtap="showPopup"
+      data-type="isshowType"
+    />
+    <van-field
+      custom-style='{{ fieldStyle }}'
+      label="店铺详细地址"
+      label-class="settled-label"
+      model:value="{{ address }}"
+      placeholder="输入详细地址"
+    />
+    <!-- 入驻平台 -->
+    <view class="settled-platform">
+      <view class="settled-platform-title f30">
+        入驻平台(可双平台同时入驻)
+      </view>
+      <view class="settled-platform-con flex">
+        <view>
+          <view class="settled-platform-type flex-middle" wx:for="{{ platforms }}" wx:key="index"
+            bindtap="choosePlat" data-index="{{ index }}">
+            <view wx:if="{{ (!item.active) && meta == '商家入驻' }}" class="settled-platform-circle circle"></view>
+            <image wx:if="{{ item.active && meta == '商家入驻' }}" class="settled-platform-c-img" src="/static/images/user/settled_check.png" />
+            <image class="settled-platform-img" src="{{ item.img }}" mode="widthFix" />
+          </view>
+        </view>
+        <view>
+          <view class="shop-code-photo flex-MC" wx:for="{{ platforms.length }}" wx:key="index" 
+             bindtap="upImg" data-type="codeImg" data-index="{{ index }}">
+            <view wx:if="{{ !codeImg[index] }}" class="f30">+</view>
+            <image wx:else class="w h" src="{{ codeImg[index] }}" />
+          </view>
+        </view>
+        <view class="settled-platform-btn btn">
+          上传店铺小程序二维码
+        </view>
+      </view>
+      <view wx:if="{{ platforms.length == 1 }}" class="settled-platform-btn btn" bindtap="addOther">
+        同时入驻<text wx:if="{{ platforms[0].type == 1 }}">饿了么</text><text wx:else>美团</text>平台
+      </view>
+      <view wx:if="{{ isAddOther }}" class="settled-platform-btn btn" bindtap="quOther">
+        暂不入驻<text wx:if="{{ platforms[0].type == 1 }}">饿了么</text><text wx:else>美团</text>平台
+      </view>
+    </view>
+  </view>
+
+  <!-- 店铺logo图 -->
+  <view class="shop-logo bg-white border-ra-16 w-con">
+    <view class="shop-logo-title f30">
+      店铺logo图片
+    </view>
+    <view class="shop-logo-photo flex-MC" bindtap="upImg" data-type="logo" data-index="0">
+      <view wx:if="{{ !logo[0] }}" class="f30">+</view>
+      <image wx:else class="w h" src="{{ logo[0] }}" mode="aspectFill" />
+    </view>
+  </view>
+
+  <!-- 按钮 -->
+  <view class="settled-btn btn w-con" bindtap="submit">提交</view>
+
+  <!-- 时间弹出层 -->
+  <van-popup 
+    show="{{ isShowTime }}" 
+    data-type="isShowTime"
+    bind:close="closePopup"
+    position="bottom"
+    custom-style="height: 700rpx;padding: 20rpx 30rpx;">
+    <view class="popup-title txt-center f30">选择营业时间</view>
+    <view class="popup-time-24 f28 {{ afterTimeIndex == -1 && beforeTimeIndex == -1 ? 'popup-time-red' : '' }}" bindtap="chooseTime24">24小时</view>
+    <view class="popup-time-wrap flex f28 txt-center">
+      <scroll-view scroll-y enhanced show-scrollbar="{{false}}" class="scroll-time">
+        <view class="popup-time-box {{ afterTimeIndex == index ? 'popup-time-red' : '' }}" wx:for="{{ afterTime }}" wx:key="index"
+          bindtap="chooseTime" data-index="{{ index }}" data-type="afterTimeIndex">
+          {{ item }}
+        </view>
+      </scroll-view>
+      <view class="popup-time-line flex-middle f28">至</view>
+      <scroll-view scroll-y enhanced show-scrollbar="{{false}}" class="scroll-time">
+        <view class="popup-time-box {{ beforeTimeIndex == index ? 'popup-time-red' : '' }}" wx:for="{{ afterTime }}" wx:key="index"
+          bindtap="chooseTime" data-index="{{ index }}" data-type="beforeTimeIndex">
+          {{ item }}
+        </view>
+      </scroll-view>
+    </view>
+    <view class="popup-time-btn btn" bindtap="sureTime">确认</view>
+  </van-popup>
+
+  <!-- 城市弹出层 -->
+  <van-popup 
+    show="{{ isShowCity }}" 
+    data-type="isShowCity"
+    bind:close="closePopup"
+    position="bottom"
+    custom-style="height: 700rpx;padding: 20rpx 30rpx;">
+    <view class="popup-title txt-center f30">选择所在城市</view>
+    <view class="popup-time-wrap popup-city-wrap flex f28 txt-center">
+      <scroll-view scroll-y enhanced show-scrollbar="{{false}}" class="right-line w2">
+        <view class="popup-time-box {{ proviceIndex == index ? 'popup-time-red' : '' }}" wx:for="{{ citys }}" wx:key="index"
+          bindtap="chooseProvice" data-index="{{ index }}">
+          {{ item.name }}
+        </view>
+      </scroll-view>
+      <scroll-view scroll-y enhanced show-scrollbar="{{false}}" class="w2">
+        <view class="popup-time-box {{ cityIndex == index ? 'popup-time-red' : '' }}" wx:for="{{ citys[proviceIndex].child }}" wx:key="index"
+          bindtap="chooseCity" data-index="{{ index }}" data-type="beforeTimeIndex">
+          {{ item.name }}
+        </view>
+      </scroll-view>
+    </view>
+    <view class="popup-time-btn btn" bindtap="sureCity">确认</view>
+  </van-popup>
+
+  <!-- 经营类 -->
+  <van-action-sheet
+    show="{{ isshowType }}"
+    actions="{{ types }}"
+    description="选择店铺经营品类"
+    close-on-click-overlay
+    cancel-text="取消"
+    data-type="isshowType"
+    bind:close="closePopup"
+    bind:cancel="closePopup"
+    bind:select="chooseType"
+  />
+
+</view>

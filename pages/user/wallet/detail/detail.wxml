@@ -1,0 +1,21 @@
+<!-- 钱包明细 -->
+<view>
+
+  <!-- 引用数据过滤 -->
+  <wxs module="filters" src="../../../../utils/utils.wxs"></wxs>
+
+  <navbar title="{{ meta }}"></navbar>
+  
+  <view class="detail-item flex-middle bg-white" wx:for="{{ list }}" wx:key="index">
+    <view class="txt-center">
+      <view wx:if="{{ type }}" class="f28">提现</view>
+      <view wx:else class="f28">充值</view>
+      <view class="f22 aaa mt10">{{ item.create_time }}</view>
+    </view>
+    <view class="FB ml-auto f36">
+      {{ filters.toFix(item.price) }}
+    </view>
+  </view>
+
+
+</view>

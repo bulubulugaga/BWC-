@@ -1,0 +1,25 @@
+<!-- 提交下单图片 -->
+<view>
+
+  <navbar title="提交下单图片"></navbar>
+
+  <view class="order-img-form w-con bg-white border-ra-16 mt30">
+    <van-field label="订单号" label-class="orderImg-label" model:value="{{ orderId }}" placeholder="输入订单号" />
+    <van-field label="实付金额" label-class="orderImg-label" model:value="{{ price }}" placeholder="输入订单号金额" border="{{ false }}" />
+  </view>
+
+  <view class="order-img w-con bg-white border-ra-16 mt30">
+    <view class="order-img-title f30">请提交下单图片</view>
+    <van-uploader 
+      preview-size="192rpx"
+      max-count="9"
+      multiple
+      file-list="{{ fileList }}"  
+      bind:after-read="afterRead"
+      bind:delete="deleteImg"
+    />
+  </view>
+
+  <view class="order-img-btn btn w-con" bindtap="submit">提交</view>
+  
+</view>

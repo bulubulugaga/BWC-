@@ -1,0 +1,137 @@
+/* pages/user/vip/vip.wxss */
+page {
+  background: white;
+}
+/* 头部 */
+.vip-header {
+  height: 532rpx;
+}
+.vip-header-bg {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.vip-card-bg {
+  bottom: 0;
+  left: 50%;
+  height: 220rpx;
+  z-index: 2;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}
+.vip-card-tip {
+  color: #B08760;
+  z-index: 3;
+  bottom: 30rpx;
+  left: 74rpx;
+}
+
+/* 标题 */
+.vip-title {
+  height: 86rpx;
+  border-bottom: 4rpx solid#FCC158;
+}
+.vip-title-b {
+  border-color: #5C7EEF;
+}
+.vip-title-img {
+  width: 38rpx;
+}
+.vip-title-txt {
+  color: #FBAF00;
+  margin-left: 22rpx;
+}
+.vip-title-txt-b {
+  color: #5C7EEF;
+}
+
+/* vip类型 */
+scroll-view {
+  width: 100vw;
+}
+.vip-type {
+  padding: 17rpx 38rpx 0 20rpx;
+}
+.vip-item {
+  display: inline-block;
+  width: 182rpx;
+  height: 242rpx;
+  margin-left: 18rpx;
+  border: 2rpx solid #E9E9E9;
+  border-radius: 4rpx;
+  background: white;
+  -webkit-border-radius: 4rpx;
+  -moz-border-radius: 4rpx;
+  -ms-border-radius: 4rpx;
+  -o-border-radius: 4rpx;
+}
+.vip-item-mouth {
+  height: 74rpx;
+  background: #F4F4F4;
+  border-radius: 4rpx 4rpx 0px 0px;
+  -webkit-border-radius: 4rpx 4rpx 0px 0px;
+  -moz-border-radius: 4rpx 4rpx 0px 0px;
+  -ms-border-radius: 4rpx 4rpx 0px 0px;
+  -o-border-radius: 4rpx 4rpx 0px 0px;
+}
+.vip-item-b {
+  padding-top: 10rpx;
+}
+.vip-item-actice {
+  border-color: #FFEC86;
+  background: #FEFBEC;
+}
+.vip-item-actice-b {
+  border-color: #5C7EEF;
+  background: #C6D2FC;
+}
+.vip-item-actice .vip-item-mouth {
+  background: #FFEC86;
+}
+.vip-item-actice-b .vip-item-mouth {
+  background: #5C7EEF;
+}
+.f46 {
+  font-size: 46rpx;
+}
+.opacity4 {
+  opacity: .4;
+}
+.vip-type-tip {
+  margin-left: 38rpx;
+  margin-top: 26rpx;
+}
+
+/* line */
+.vip-line {
+  margin-top: 28rpx;
+  height: 18rpx;
+  background: #D8D8D8;
+  opacity: 0.2;
+}
+
+/* 两个图标 */
+.vip-identity {
+  width: 470rpx;
+  margin: 38rpx auto 94rpx;
+}
+.vip-identity-item-img {
+  width: 72rpx;
+  margin-bottom: 14rpx;
+}
+.vip-identity-item-t2 {
+  color: #CFA767;
+}
+
+/* 按钮 */
+.vip-btn {
+  width: 662rpx;
+  line-height: 80rpx;
+  color: white;
+  background: linear-gradient(270deg, #3D3D3D 0%, #595858 100%);
+  border-radius: 10rpx;
+  margin: 0 auto 20rpx;
+}

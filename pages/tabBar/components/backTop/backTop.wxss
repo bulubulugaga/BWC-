@@ -1,0 +1,7 @@
+/* pages/tabBar/components/backTop/backTop.wxss */
+.back-top-img {
+  width: 94rpx;
+  height: 90rpx;
+  position: fixed;
+  right: 30rpx;
+}

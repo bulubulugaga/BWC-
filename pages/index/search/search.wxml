@@ -1,0 +1,29 @@
+<!-- 搜索 -->
+<view>
+  <navbar title="搜索"></navbar>
+  
+  <view class="wrap bg-white">
+    <!-- 搜索 -->
+    <view class="area-left flex-middle f26 w-con">
+      <image class="area-left-search" src="/static/images/tabBar/search.png" mode="widthFix" />
+      <input class="area-left-input" type="text" focus placeholder="搜索" value="{{ key }}"
+        bind:input="inputChange" data-model="key" bindconfirm="searchKey" />
+    </view>
+
+    <!-- 距离 -->
+    <view class="business-title flex-middle flex-cover w-con">
+      <view class="business-distri-intro f30">距离最近</view>
+      <view class="business-btn f24  {{ onlyAble ? 'businessBtnActive' : '' }}" bindtap="changeOnlyAble">仅显示可接单商家</view>
+    </view>
+  </view>
+
+  <!-- 订单 -->
+  <view wx:if="{{ list.length == 0 }}" class="null txt-center">
+    <image class="null-img" src="/static/images/null.png" mode="widthFix" />
+    <view class="gray f28">暂无数据</view>
+  </view>
+  <view wx:else class="category-bill w-con mt30">
+    <busiList list="{{ list }}" type="-1" />
+  </view>
+
+</view>

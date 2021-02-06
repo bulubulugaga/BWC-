@@ -1,0 +1,41 @@
+/* components/busiList/busiList.wxss */
+.business-list {
+  margin-bottom: 30rpx;
+  padding: 16rpx 16rpx 16rpx 18rpx;
+}
+.business-list-img image {
+  width: 110rpx;
+  height: 110rpx;
+}
+.business-list-middle-name {
+  margin: 6rpx 0 0;
+}
+.business-list-middle-num {
+  width: 180rpx;
+  height: 16rpx;
+  line-height: 16rpx;
+  background: #F9F8CD;
+  margin-top: 44rpx;
+  border-radius: 8rpx;
+  -webkit-border-radius: 8rpx;
+  -moz-border-radius: 8rpx;
+  -ms-border-radius: 8rpx;
+  -o-border-radius: 8rpx;
+  text-align: center;
+}
+.business-list-type image {
+  width: 182rpx;
+  height: 48rpx;
+  top: 0;
+  right: 0;
+}
+.business-list-right {
+  right: 16rpx;
+  top: 96rpx;
+}
+
+.order-bottom {
+  margin-top: 16rpx;
+  height: 94rpx;
+  border-top: 1rpx solid #E0E0E0;
+}

@@ -1,0 +1,113 @@
+<!-- 发布任务 -->
+<view>
+
+  <navbar title="发布任务" />
+
+  <view class="release-form w-con border-ra-16 bg-white mt30">
+    <!-- 选择平台 -->
+    <view class="choose-p">
+      <view class="choose-p-c">
+        <view class="choose-p-title f30">发布平台</view>
+        <view class="flex-cover">
+          <view class="flex-middle" wx:if="{{ item.isShow }}" wx:for="{{ platforms }}" wx:key="index" bindtap="chooseP" data-index="{{ index }}">
+            <view wx:if="{{ item.is === false }}" class="choose-p-circle circle"></view>
+            <image wx:else class="choose-p-img" src="/static/images/user/settled_check.png" />
+            <image class="choose-ping-img" src="{{ item.img }}" mode="widthFix" />
+          </view>
+        </view>
+        <view wx:if="{{ platforms[0].isShow && platforms[1].isShow }}" class="f26 gray mt20">提示：同时选择发布两个平台任务，单个任务数量减半，输入的数量必须为双数。</view>
+      </view>
+    </view>
+    <!-- 表单内容 -->
+    <van-field custom-style='{{ fieldStyle }}' label="任务类型" label-class="settled-label"
+      model:value="{{ type }}" is-link readonly bindtap="showPopup" data-type="isshowType" />
+    <van-field custom-style='{{ fieldStyle }}' label="任务数量" label-class="settled-label" 
+      placeholder="输入任务数量" model:value="{{ num }}" type="number" />
+    <van-field custom-style='{{ fieldStyle }}' label="任务单价" label-class="settled-label" 
+      placeholder="输入任务单价（如30）" model:value="{{ price }}" type="digit" />
+    <!-- 返利餐选择折扣 -->
+    <van-field wx:if="{{ type == '返利餐' }}" custom-style='{{ fieldStyle }}' label="返利折扣" label-class="settled-label" 
+      placeholder="选择返利餐返利比例（须大于5折）" model:value="{{ zhe + '折' }}" is-link readonly bindtap="showPopup" data-type="isShowZhe" />
+    <van-field custom-style='{{ fieldStyle }}' label="平台服务费" label-class="settled-label" 
+      placeholder="自动计算生成" model:value="{{ serPrice }}" readonly />
+    <van-field custom-style='{{ fieldStyle }}' label="任务总价" label-class="settled-label" 
+      placeholder="自动计算生成" model:value="{{ sumPrice }}" readonly />
+    <van-field custom-style='{{ fieldStyle }}' label="结束时间" label-class="settled-label" 
+      placeholder="选择任务结束时间" model:value="{{ endTimeDis }}" is-link readonly bindtap="showPopup" data-type="isShowTime" />
+    <van-field custom-style='{{ fieldStyle }}' label="配送距离" label-class="settled-label" 
+      placeholder="选择配送距离（1-20km）" is-link model:value="{{ dis }}" readonly bindtap="showPopup" data-type="isshowDis" />
+    <!-- 备注 -->
+    <view class="release-remark">
+      <view class="release-remark-title f30">任务备注</view>
+      <textarea value="{{ remark }}" maxlength="-1" bindinput="inputRemark" placeholder="输入任务备注信息"></textarea>
+    </view>
+  </view>
+  {{ sum }}
+  <view class="release-btn btn w-con mt30 mb30" bindtap="submit">发布任务</view>
+
+  <!-- 任务类型 -->
+  <van-action-sheet
+    show="{{ isshowType }}"
+    actions="{{ types }}"
+    description="选择任务类型"
+    close-on-click-overlay
+    cancel-text="取消"
+    data-type="isshowType"
+    data-typeN="type"
+    data-typeId="typeId"
+    bind:close="closePopup"
+    bind:cancel="closePopup"
+    bind:select="chooseType"
+  />
+
+  <!-- 选择时间 -->
+  <van-popup 
+    show="{{ isShowTime }}" 
+    data-type="isShowTime"
+    bind:close="closePopup"
+    position="bottom"
+    custom-style="height: 700rpx;padding: 20rpx 30rpx;">
+    <van-datetime-picker
+      type="datetime"
+      data-type="isShowTime"
+      value="{{ currentDate }}"
+      min-date="{{ minDate }}"
+      max-date="{{ maxDate }}"
+      bind:confirm="chooseTime"
+      bind:cancel="closePopup"
+    />
+  </van-popup>
+
+  <!-- 配送距离 -->
+  <van-action-sheet
+    show="{{ isshowDis }}"
+    actions="{{ distris }}"
+    description="选择任务类型"
+    close-on-click-overlay
+    cancel-text="取消"
+    data-type="isshowDis"
+    data-typeN="dis"
+    data-typeId="disId"
+    bind:close="closePopup"
+    bind:cancel="closePopup"
+    bind:select="chooseType"
+  />
+
+  <!-- 折扣 -->
+  <van-action-sheet
+    show="{{ isShowZhe }}"
+    actions="{{ zhes }}"
+    description="选择返利比例"
+    close-on-click-overlay
+    cancel-text="取消"
+    data-type="isShowZhe"
+    data-typeN="zhe"
+    data-typeId="zheId"
+    bind:close="closePopup"
+    bind:cancel="closePopup"
+    bind:select="chooseType"
+  />
+
+  <payType id="pay" bindchoosePay="choosePay" />
+
+</view>

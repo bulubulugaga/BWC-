@@ -1,0 +1,10 @@
+<!-- 区域代理 -->
+<view>
+
+  <navbar title="区域代理"></navbar>
+
+  <image class="settled_bg w-con" src="/static/images/user/agent_bg.jpg" mode="widthFix" />
+
+  <view class="settled-btn w-con btn FB mt30" bindtap="toForm">立即合作</view>
+
+</view>

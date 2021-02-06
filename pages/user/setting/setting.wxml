@@ -1,0 +1,49 @@
+<!--pages/user/setting/setting.wxml-->
+<view class="setting">
+
+  <navbar title="编辑信息"></navbar>
+
+  <!-- 信息 -->
+  <view class="setting-top w-con border-ra-16 hidden">
+    <van-cell is-link url="{{ item.url }}" bindtap="chooseImg">
+      <view slot="title" class="setting-top-item1 flex">
+        <view class="f30 mr44">头像</view>
+        <view class="setting-top-item1-img">
+          <image class="setting-top-item1-img circle" src="{{ user.avatarUrl }}" mode="aspectFill" />
+        </view>
+      </view>
+    </van-cell>
+    <van-cell url="{{ item.url }}">
+      <view slot="title" class="setting-top-item1 flex">
+        <view class="f30 mr44">昵称</view>
+        <view class="f30">
+          <input type="text" bindinput="inputName" value="{{ user.nickName }}" />
+        </view>
+      </view>
+    </van-cell>
+    <van-cell is-link url="{{ item.url }}" bindtap="showSex">
+      <view slot="title" class="setting-top-item1 flex">
+        <view class="f30 mr44">性别</view>
+        <view class="f30">{{ user.gender }}</view>
+      </view>
+    </van-cell>
+  </view>
+
+  <!-- 按钮 -->
+  <view class="w-con btn" bindtap="submit">
+    保存
+  </view>
+
+  <!-- 性别弹窗 -->
+  <van-action-sheet
+    show="{{ isShow }}"
+    actions="{{ sexs }}"
+    description="选择性别"
+    close-on-click-overlay
+    cancel-text="取消"
+    bind:close="closePopup"
+    bind:cancel="closePopup"
+    bind:select="chooseSex"
+  />
+
+</view>

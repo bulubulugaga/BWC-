@@ -1,0 +1,12 @@
+<!-- 公告详情 -->
+<view class="notice">
+
+  <navbar title="公告详情" />
+
+  <view class="mt30 w-con f30">{{ detail.users_notice || detail.business_notice }}</view>
+  <view class="mt30 w-con f26 gray">{{ detail.create_time }}</view>
+  <view class="mt30 w-con f30">
+    <rich-text nodes="{{ detail.content }}"></rich-text>
+  </view>
+
+</view>

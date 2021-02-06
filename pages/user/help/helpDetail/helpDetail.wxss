@@ -1,0 +1,12 @@
+/* pages/user/help/helpDetail/helpDetail.wxss */
+page {
+  background: white;
+}
+.question {
+  padding: 24rpx 0;
+  color: #1D1C1C;
+}
+.anwser {
+  padding-top: 24rpx;
+  border-top: 10rpx solid #F6F7F9;
+}

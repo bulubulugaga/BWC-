@@ -1,0 +1,15 @@
+/* components/swiper/swiper.wxss */
+/* 轮播图 */
+.swiper {
+  height: 350rpx;
+  margin: 0 auto;
+  width: 690rpx;
+}
+.swiper swiper {
+  width: 100%;
+  height: 100%;
+}
+.swiper image {
+  width: 100%;
+  height: 100%;
+}

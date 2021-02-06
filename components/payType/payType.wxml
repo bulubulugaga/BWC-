@@ -1,0 +1,15 @@
+
+<!-- 支付方式 -->
+<view>
+  <van-action-sheet
+    show="{{ isShow }}"
+    actions="{{ pays }}"
+    description="选择支付方式"
+    close-on-click-overlay
+    cancel-text="取消"
+    bind:close="closePopup"
+    bind:cancel="closePopup"
+    bind:select="chooseType"
+  />
+</view>
+  

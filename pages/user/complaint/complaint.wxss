@@ -1,0 +1,8 @@
+/* pages/user/complaint/complaint.wxss */
+.idea {
+  height: 520rpx;
+}
+.idea-num {
+  right: 20rpx;
+  bottom: 20rpx;
+}

@@ -1,0 +1,14 @@
+<!--pages/user/help/heilp.wxml-->
+<view>
+  <navbar title="帮助详情"></navbar>
+  
+  <!-- nav -->
+  <view class="question f30 w-con FB">
+    {{ info.problem }}
+  </view>
+  
+  <view class="anwser w-con f26">
+    {{ info.answer }}
+  </view>
+
+</view>

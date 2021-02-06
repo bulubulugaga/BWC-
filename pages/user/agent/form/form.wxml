@@ -1,0 +1,62 @@
+<!-- 商家入驻表单 -->
+<view>
+
+  <navbar title="区域代理"></navbar>
+
+  <!-- 表单 -->
+  <view class="agent-form w-con mt30 bg-white border-ra-16">
+    <van-field
+      custom-style='{{ fieldStyle }}'
+      label="姓名"
+      label-class="agent-label"
+      model:value="{{ name }}"
+      placeholder="输入姓名"
+    />
+    <van-field
+      custom-style='{{ fieldStyle }}'
+      label="电话"
+      label-class="agent-label"
+      model:value="{{ phone }}"
+      placeholder="输入联系电话"
+    />
+    <van-field
+      custom-style='{{ fieldStyle }}'
+      label="期望代理区域"
+      label-class="agent-label"
+      model:value="{{ city }}"
+      placeholder="选择代理城市"
+      border="{{ false }}"
+      readonly
+      bindtap="showPopup"
+      is-link
+    />
+  </view>
+
+  <!-- 按钮 -->
+  <view class="agent-btn btn w-con" bindtap="submit">提交</view>
+
+  <!-- 城市弹出层 -->
+  <van-popup 
+    show="{{ isShowCity }}" 
+    bind:close="closePopup"
+    position="bottom"
+    custom-style="height: 700rpx;padding: 20rpx 30rpx;">
+    <view class="popup-title txt-center f30">选择所在城市</view>
+    <view class="popup-time-wrap popup-city-wrap flex f28 txt-center">
+      <scroll-view scroll-y enhanced show-scrollbar="{{false}}" class="right-line w2">
+        <view class="popup-time-box {{ proviceIndex == index ? 'popup-time-red' : '' }}" wx:for="{{ citys }}" wx:key="index"
+          bindtap="chooseProvice" data-index="{{ index }}">
+          {{ item.name }}
+        </view>
+      </scroll-view>
+      <scroll-view scroll-y enhanced show-scrollbar="{{false}}" class="w2">
+        <view class="popup-time-box {{ cityIndex == index ? 'popup-time-red' : '' }}" wx:for="{{ citys[proviceIndex].child }}" wx:key="index"
+          bindtap="chooseCity" data-index="{{ index }}" data-type="beforeTimeIndex">
+          {{ item.name }}
+        </view>
+      </scroll-view>
+    </view>
+    <view class="popup-time-btn btn" bindtap="sureCity">确认</view>
+  </van-popup>
+
+</view>

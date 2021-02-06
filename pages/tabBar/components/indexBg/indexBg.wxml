@@ -1,0 +1,71 @@
+<!--pages/tabBar/components/indexHeader.wxml-->
+<!-- 首页和返利餐共同组件 -->
+<view class="content">
+  <!-- 头部 -->
+  <view class="header w-con-p flex-cover" style='top: {{ navbarHeight - 8 }}px'>
+    <view class="header-left flex-middle f26">
+      <text class="header-left-area ellipsis" bindtap="toArea">{{ area.name }}</text>
+      <van-icon name="arrow-down" size="26rpx" color="gray" />
+      <view class="header-left-line"></view>
+      <image class="header-left-search" src="/static/images/tabBar/search.png" mode="widthFix" />
+      <input bindtap="toSearch" class="header-left-input" disabled type="text" placeholder="搜索" />
+    </view>
+    <view class="header-right" style='width: {{hrWidth}}px'>
+      <image class="header-right-arrow pr" src="/static/images/tabBar/arrow.png" mode="widthFix" />
+      <view class="header-right-txt bg-white f22 border-ra-16 txt-center pr">
+        <text>添加到\n我的小程序\n吃饭不迷路</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 占位 -->
+  <view class="header-blank w"></view>
+
+  <!-- 轮播图 -->
+  <mySwiper />
+
+  <!-- 导航菜单 -->
+  <scroll-view class="index_nav w-con" scroll-x="{{ true }}" enhanced show-scrollbar="{{false}}">
+    <view class="flex-cover" style='width: calc(106rpx * {{ category.length }} + 60rpx)'>
+      <view class="box txt-center" wx:for="{{ category }}" wx:key="unique"
+        bindtap="toCategory" data-index="{{ index }}">
+        <image src="{{ item.img }}" mode="" />
+        <view class="f26">{{ item.type_title }}</view>
+      </view>
+    </view>
+  </scroll-view>
+  
+
+  <!-- 公告 -->
+  <view bindtap="toNotice">
+    <van-notice-bar background="#F9F8CD" color="#13120F" speed="30" custom-class="adver"
+      left-icon="volume-o"
+      text="{{ advertise }}"
+    />
+  </view>
+
+  <!-- 优选好店/热门店铺 -->
+  <view class="hot w-con bg-white border-ra-16">
+    <view class="hot-title">{{ hotTitle }}</view>
+    <view class="hot-content flex-wrap">
+      <view class="hot-content-box mt20" wx:for="{{ hotShop }}" wx:key="unique" bindtap="toOrder" 
+        data-id="{{ item.openid }}" data-tid="{{ item.task[0].id }}" data-bid="{{ item.id }}">
+        <image class="hot-content-box-img" src="{{ item.img }}" mode="aspectFill" />
+        <view class="hot-content-box-name w ellipsis f28">{{ item.business_name }}</view>
+        <view class="w ellipsis f24 aaa">{{ item.juli }}km</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 商家列表 -->
+  <view class="business w-con">
+    <view class="business-title flex-middle flex-cover">
+      <view class="business-distri-intro f30">距离最近</view>
+      <view class="business-btn f24  {{ onlyAble ? 'businessBtnActive' : '' }}" bindtap="changeOnlyAble">仅显示可接单商家</view>
+    </view>
+    <busiList list="{{ business }}" type="{{ type }}" />
+  </view>
+ 
+
+</view>
+

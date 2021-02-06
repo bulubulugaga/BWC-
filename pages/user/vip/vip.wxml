@@ -1,0 +1,70 @@
+<!-- 会员中心 -->
+<view>
+
+  <navbar title="会员中心" color="white" bgColor="none" blankShow="{{ false }}"></navbar>
+
+  <!-- 头部 -->
+  <view class="vip-header pr">
+    <image class="vip-header-bg pa" src="/static/images/user/vip_bg.png" mode="aspectFill" />
+    <image class="vip-card-bg w-con pa" src="/static/images/user/vip_card_bg.png" mode="aspectFill" />
+    <view wx:if="{{ userType == 'user' }}" class="vip-card-tip f24 pa">{{ cardTip }}</view>
+  </view>
+
+  <!-- 标题 -->
+  <view class="vip-title {{ userType == 'business' ? 'vip-title-b' : '' }} flex-MC">
+    <image wx:if="{{ userType == 'user' }}" class="vip-title-img" src="/static/images/user/vip.png" mode="widthFix" />
+    <image wx:else class="vip-title-img" src="/static/images/user/vip_b.png" mode="widthFix" />
+    <view class="vip-title-txt {{ userType == 'business' ? 'vip-title-txt-b' : '' }}">
+      <text wx:if="{{ userType == 'user' }}">用户会员</text>
+      <text wx:else>商家会员</text>
+    </view>
+  </view>
+
+  <!-- vip类型 -->
+  <scroll-view scroll-x="{{true}}" enhanced show-scrollbar="{{false}}">
+    <view class="vip-type" style='width: calc(200rpx * {{ vipType.length }} + 60rpx)'>
+      <view class="vip-item txt-center {{vipTypeIndex == index && userType == 'user' ? 'vip-item-actice' : ''}} {{ vipTypeIndex == index && userType != 'user' ? 'vip-item-actice-b' : ''}}"
+         wx:for="{{ vipType }}" wx:key="index" bindtap="chooseType" data-index="{{index}}">
+        <view class="vip-item-mouth flex-MC f30">{{ item.title }}</view>
+        <view class="mt30 flex-center">
+          <view class="vip-item-b f26">￥</view>
+          <view class="f46">{{ item.price }}</view>
+        </view>
+        <!-- <view class="f24 c333 opacity4">原价￥{{ item.prePrice }}</view> -->
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 提示 -->
+  <view class="vip-type-tip c333 opacity4 f24">
+    <text wx:if="{{ vipType[0].price }}">每月仅需{{ vipType[0].price }}元，开通季费、年费会员优惠更多！</text>
+    <text wx:else>{{ vipTip }}</text>
+  </view>
+
+  <!-- line -->
+  <view class="vip-line"></view>
+
+  <!-- 两个图标 -->
+  <view class="vip-identity flex-cover txt-center">
+    <view class="vip-identity-item">
+      <image class="vip-identity-item-img" src="/static/images/user/vip_icon01.png" mode="widthFix" />
+      <view class="f28">会员身份</view>
+      <view class="vip-identity-item-t2 f22">专属会员身份显示</view>
+    </view>
+    <view class="vip-identity-item">
+      <image class="vip-identity-item-img" src="/static/images/user/vip_icon02.png" mode="widthFix" />
+      <view wx:if="{{ userType == 'user' }}" class="f28">会员权益</view>
+      <view wx:else class="f28">商家权益</view>
+      <view wx:if="{{ userType == 'user' }}" class="vip-identity-item-t2 f22">霸王单无限接单权益</view>
+      <view wx:else class="vip-identity-item-t2 f22">平台服务享受1折优惠</view>
+    </view>
+  </view>
+
+  <!-- 按钮 -->
+  <view wx:if="{{ vipType[0].price }}" class="vip-btn txt-center" bindtap="submit">
+    开通会员
+  </view>
+
+  <payType id="pay" bindchoosePay="choosePay" />
+  
+</view>

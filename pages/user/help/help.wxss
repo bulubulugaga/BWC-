@@ -1,0 +1,22 @@
+/* pages/user/help/heilp.wxss */
+.help-nav {
+  position: fixed;
+  width: 100%;
+  padding: 0 130rpx;
+  z-index: 1;
+}
+.help-nav-item, .help-blank {
+  height: 70rpx;
+  line-height: 70rpx;
+}
+.help-nav-item-active {
+  color: #000;
+  border-bottom: 4rpx solid #FEE101;
+}
+.idea {
+  height: 520rpx;
+}
+.idea-num {
+  right: 20rpx;
+  bottom: 20rpx;
+}

@@ -1,0 +1,36 @@
+<!-- 优惠券 -->
+<view>
+  <navbar title="优惠券"></navbar>
+  
+  <!-- 选项卡 -->
+  <view class="coupon-type flex-cover bg-white">
+    <view class="coupon-type-item f30 aaa FB {{ navIndex == index ? 'coupon-type-item-active' : '' }}" 
+      wx:for="{{ nav }}" wx:key="index" bindtap="clickNav" data-index="{{ index }}">
+      {{item.title}}
+    </view>
+  </view>
+
+  <!-- 优惠券 -->
+  <view class="coupon-con">
+    <view class="coupon-item w-con pr" wx:for="{{ coupons }}" wx:key="index">
+      <image class="coupon-item-bg pa" src="{{item.status == 1 ? '/static/images/user/coupon01.png' : '/static/images/user/coupon02.png'}}" />
+      <view class="coupon-item-txt flex">
+        <!-- 时间 -->
+        <view class="coupon-item-left txt-center">
+          <view class="aaa f24">有效日期：</view>
+          <view class="coupon-item-left-t2 f30 FB">{{item.day}}天</view>
+        </view>
+        <!-- 说明 -->
+        <view class="coupon-item-middle txt-center flex-1">
+          <view class="f30 FB">{{ item.title }}</view>
+          <view class="coupon-item-middle-t2 f24">{{ item.introduce }}</view>
+        </view>
+        <!-- 使用 -->
+        <view class="coupon-item-right ml-auto f24 white flex-MC">
+          <text>{{ item.status == 1 ? '立即\n使用' : '已过期' }}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

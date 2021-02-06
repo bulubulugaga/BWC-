@@ -1,0 +1,8 @@
+<!--pages/tabBar/components/backTop/backTop.wxml-->
+
+<image 
+  class="back-top-img" 
+  src="/static/images/tabBar/backTop.png" 
+  bindtap="toTop"
+  style='bottom: {{ bottom }}'
+/>

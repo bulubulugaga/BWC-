@@ -1,0 +1,29 @@
+<!--pages/tabBar/order/order.wxml-->
+<!-- 订单 -->
+<view class="container">
+  <navbar title="订单" leftIconShow="{{false}}" bgColor="#F9F8CD"></navbar>
+  
+  <!-- 分类 -->
+  <view class="top" style='top: {{ navbarHeight }}px'>
+    <view class="top-type flex-cover">
+      <view class="top-type-box txt-center {{ topTypeIndex == index ? 'top-type-box-active' : '' }}" 
+        wx:for="{{ topType }}" wx:key="index" bindtap="chooseType" data-index="{{ index }}">
+        {{ item.name }}
+      </view>
+    </view>
+    <view class="top-type-order w-con-p bg-white flex-cover">
+      <view class="top-type-order-box f26 aaa {{ orderTypeIndex == index ? 'top-type-order-box-active' : '' }}"
+        wx:for="{{ orderType }}" wx:key="index" bindtap="chooseOrderType" data-index="{{ index }}">
+        {{ item.name }}({{item.num}})
+      </view>
+    </view>
+  </view>
+  <!-- 占位 -->
+  <view class="top-blank w"></view>
+
+  <view class="w-con">
+    <busiList list="{{ list }}" type="-1" />
+    <!-- <busiList list="{{ list }}" isOrder="{{ true }}" type="-1" /> -->
+  </view>
+
+</view>

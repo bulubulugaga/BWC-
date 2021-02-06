@@ -1,0 +1,52 @@
+<!-- 钱包 -->
+<view>
+
+  <!-- 引用数据过滤 -->
+  <wxs module="filters" src="../../../utils/utils.wxs"></wxs>
+
+  <navbar title="我的钱包"></navbar>
+  
+  <!-- 余额显示 -->
+  <view class="wallet-header pr">
+    <image class="wallet-header-img pa" src="/static/images/user/wallet_bg.png" mode="aspectFill" />
+    <view class="wallet-header-con flex-cover flex-middle">
+      <view class="txt-center">
+        <view class="f30">余额(元)</view>
+        <view class="f48 mt40">{{filters.toFix(money)}}</view>
+      </view>
+      <view class="ml-auto">
+        <view class="flex-middle">
+          <image class="widthdra-img" bindtap="toOther" data-src="./detail/detail?type=0" src="/static/images/user/withdra.png" mode="widthFix"></image>
+          <view class="f24 ml20" bindtap="toOther" data-src="./detail/detail?type=0">提现明细</view>
+        </view>
+        <view wx:if="{{ isShowRe }}" class="f24 mt30 txt-center" bindtap="toOther" data-src="./recharge/recharge">充值</view>
+        <view wx:if="{{ isShowRe }}" class="flex-middle mt10">
+          <image class="widthdra-img" bindtap="toOther" data-src="./detail/detail?type=1" src="/static/images/user/withdra.png" mode="widthFix"></image>
+          <view class="f24 ml20" data-src="./detail/detail?type=1" bindtap="toOther">充值明细</view>
+        </view>
+      </view>
+      
+    </view>
+  </view>
+
+  <!-- 提现 -->
+  <view class="w-con">
+    <view class="f24 mt30">提现金额</view>
+    <input class="w" type="digit" value="{{ withdrawal }}" placeholder="请输入提现金额"
+      class="withdrawal-input-w withdrawal-input" placeholder-class="withdrawal-input"
+      bind:input="inputChange" data-model="withdrawal" />
+    <view class="withdrawal-line"></view>
+    <view class="f24 aaa">提现将收取1%的手续费</view>
+  </view>
+
+  <!-- 按钮 -->
+  <view class="withdrawal-btn btn w-con" bindtap="submit">
+    确认提现
+  </view>
+
+  <!-- 提示 -->
+  <view class="wallet-tip f24 aaa w-con">
+    10元即可提现，提现将收取1％的提现手续费，每人每天限提现1次，为保护您的账户安全，一次性提现30000元将需要人工审核， 审核通过后即刻到账。
+  </view>
+
+</view>

@@ -1,0 +1,24 @@
+<!--index.wxml-->
+<!--霸王餐-->
+
+<view class="container">
+  <!--<navbar title="小程序名霸王餐" isDefaultFun="{{false}}" bindleftTap="navBarTap"></navbar>-->
+  <navbar title="{{ name }}霸王餐" leftIconShow="{{false}}" bgColor="#F9F8CD"></navbar>
+  
+  <!-- 霸王餐和返利餐 -->
+  <indexBg
+    id="bg" 
+    area="{{ area }}" 
+    advertise="{{ advertise }}" 
+    hotTitle="热门店铺"
+    hotShop="{{ hotShop }}"
+    business="{{ business }}"
+    type="1"
+    bind:changeAble = "changeOnlyAble"
+  >
+  </indexBg>
+
+  <!-- 返回顶部 -->
+  <backTop />
+
+</view>

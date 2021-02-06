@@ -1,0 +1,58 @@
+<!--components/busiList/busiList.wxml-->
+<!-- 商家列表 -->
+
+<view>
+
+  <!-- 引用数据过滤 -->
+  <wxs module="filters" src="../../utils/utils.wxs"></wxs>
+
+<view>
+  <!-- 为-1时展示所有，否则按霸王餐或者返利餐展示 -->
+  <view wx:if="{{ type == -1 ? true : ( item.task ? type == item.task[0].task_type : true) }}" class="business-list bg-white border-ra-16 pr" 
+    wx:for="{{list }}" wx:key="unique"  bindtap="toOrder" data-id="{{ item.task[0].openid }}" data-state="{{ item.state }}" 
+    data-yu="{{item.task[0].surplus_num || item.task[0].shengyu_num}}" data-tid="{{ item.task[0].id }}" data-bid="{{ item.business.id || item.id }}">
+    
+    <!-- 作商家使用 -->
+    <view class="flex">
+      <!-- 图片 -->
+      <view class="business-list-img">
+        <image class="border-ra-16" src="{{ item.img }}" mode="aspectFill" />
+      </view>
+      <!-- 中间 -->
+      <view class="business-list-middle ml20">
+        <view class="f30">{{ item.business_name }}</view>
+        <view wx:if="{{ item.task[0].surplus_num || item.task[0].shengyu_num }}" class="business-list-middle-discri f24">
+          <text wx:if="{{ item.task[0].task_type == 1 }}">整单返利</text>
+          <text wx:else>返利{{ item.task[0].rebate_discount }}折</text>
+        </view>
+        <view wx:if="{{ item.task[0].surplus_num || item.task[0].shengyu_num }}" class="business-list-middle-num f20">剩余单量：
+          <text class="FB f22">{{ item.task[0].surplus_num || item.task[0].shengyu_num }}</text>/{{ item.task[0].task_num }}
+        </view>
+        <view wx:else class="business-list-middle-num f20 mt20">
+          已售清
+        </view>
+      </view>
+      <!-- 美团vs饿了么 -->
+      <view class="business-list-type">
+        <image wx:if="{{ item.elm_status == 1 || item.business.elm_status == 1 }}" class="pa" src="/static/images/tabBar/eleme.png" />
+        <image wx:else class="pa" src="/static/images/tabBar/meituan.png" />
+      </view>
+      <!-- 距离和时间 -->
+      <view class="business-list-right pa f24 aaa txt-right">
+        <view>{{ filters.toFix(item.juli / 1000) }}km</view>
+        <view>营业时间:{{ item.business_time }}</view>
+      </view>
+    </view>
+
+    
+    <!-- 作订单使用 -->
+    <view wx:if="{{ isOrder }}" class="order-bottom flex-middle flex-cover">
+      <view class="f26">
+        <text>{{ item.stateName }}</text>
+      </view>
+    </view>
+  </view>
+
+</view>
+  
+</view>

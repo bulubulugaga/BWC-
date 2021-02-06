@@ -1,0 +1,170 @@
+<!-- 订单详情 -->
+<view>
+
+  <navbar bgColor="none" blankShow="{{ false }}"></navbar>
+
+  <!-- 引用数据过滤 -->
+  <wxs module="filters" src="../../../utils/utils.wxs"></wxs>
+
+  <!-- 头部背景 -->
+  <image class="header-bg" src="{{ infoB.img }}" mode="aspectFill" />
+  
+  <!-- 商家信息 -->
+  <view class="header-shop bg-white w-con pr border-ra-16">
+    <view class="shop-info flex">
+      <image class="shop-info-logo border-ra-16" src="{{ infoB.img }}" mode="aspectFill" />
+      <view class="shop-info-name flex-cover">
+        <view class="f30 FB">{{ infoB.business_name }}</view>
+        <view class="shop-info-tip f22 txt-red">
+          <text class="f26 FB">{{ infoT.task_one_price }}</text>元内
+          <text wx:if="{{ infoT.task_type == 1 }}">整单返利</text>
+          <text wx:else>返利{{ infoT.rebate_discount }}折</text>
+          、超出部分自费
+        </view>
+      </view>
+      <view class="shop-info-type ml-auto FB">
+        <text wx:if="{{ infoT.task_type == 1 }}">霸王餐</text>
+        <text wx:else>返利餐</text>
+      </view>
+    </view>
+    <!-- 美团或者饿了么 -->
+    <image wx:if="{{ infoT.mt_status == 1 }}" class="shop-info-em pa" src="/static/images/tabBar/meituan.png" mode="widthFix" />
+    <image wx:else class="shop-info-em pa" src="/static/images/tabBar/eleme.png" mode="widthFix" />
+    <!-- 地址和时间 -->
+    <van-cell custom-class="info-cell mt20" title-class="info-cell-title f24"
+      icon="/static/images/order/address.png" title="{{ infoB.details_address }}" />
+    <van-cell custom-class="info-cell"  title-class="info-cell-title f24"
+      icon="/static/images/order/time.png" title="{{ infoB.business_time }}" border="{{ false }}" /> 
+  </view>
+
+  <!-- 备注 -->
+  <view class="info-remark w-con bg-white border-ra-16 mt30">
+    <view class="info-remark-title flex-middle">
+      <image class="info-remark-title-img" src="/static/images/order/remark.png" mode="widthFix" />
+      <text class="f30 FB">订单备注</text>
+    </view>
+   <view class="f26 mt30">{{ infoT.task_remarks }}</view>
+  </view>
+
+  <!-- 下单上传的图片 -->
+  <view wx:for="{{ infoF }}" wx:key="index" class="add-order-img w-con border-ra-16 bg-white mt30">
+    <!-- 索引 -->
+    <view class="info-f-index f30">{{ index + 1 }}</view>
+    <view class="add-order-img-line"></view>
+    <!-- 订单截图 -->
+    <view class="info-remark-title flex-middle mt20">
+      <image class="info-remark-title-img" src="/static/images/order/order.png" mode="widthFix" />
+      <text class="f30 FB">订单截图</text>
+    </view>
+    <view class="order-images">
+      <image wx:for="{{ item.order_img }}" wx:for-item="i" wx:key="index" src="{{ i }}" mode="aspectFill"
+        bindtap="preveImg" data-src="{{ item.order_img }}" />
+    </view>
+    <view class="add-order-img-line"></view>
+    <view class="f24 mt20">订单号：{{ item.order_num }}</view>
+    <view class="f24 mt10">实付金额：{{ item.order_price }}</view>
+
+    <!-- 等待评价展示 -->
+    <view wx:if="{{ !item.comment_time }}" class="flex-middle">
+      <view class="add-order-shop-btn1 btn ml-auto" bindtap="platform" data-id="{{ item.id }}" data-num="{{ item.intervention_num }}">平台介入</view>
+      <view class="ml20 add-order-shop-txt f28 FB">等待用户评价</view>
+    </view>
+
+    <!-- 评价图 -->
+    <view wx:if="{{ item.comment_time }}" class="add-order-img-line"></view>
+    <view wx:if="{{ item.comment_time }}" class="info-remark-title flex-middle mt30">
+      <image class="info-remark-title-img" src="/static/images/order/order.png" mode="widthFix" />
+      <text class="f30 FB">评价图片</text>
+    </view>
+    <view wx:if="{{ item.comment_time }}" class="order-images">
+      <image wx:for="{{ item.comment_img }}" wx:for-item="i" wx:key="index" src="{{ i }}" mode="aspectFill"
+        bindtap="preveImg" data-src="{{ item.comment_img }}" />
+    </view>
+
+    <!-- 商家展示用户信息(进行中) -->
+    <view wx:if="{{ item.comment_time }}" class="add-order-img-line"></view>
+    <view wx:if="{{ item.comment_time }}" class="add-order-shop flex-middle mt30">
+      <image class="add-order-shop-useri circle mr20" src="{{ item.avatarUrl }}" />
+      <text class="f24 aaa">{{ item.nickName }}</text>
+      <block wx:if="{{ item.comment_time && item.sh_state == 0 && item.platform_status !== '0' }}">
+        <view class="add-order-shop-btn1 btn ml-auto" bindtap="platform" data-id="{{ item.id }}" data-num="{{ item.intervention_num }}">平台介入</view>
+        <view class="add-order-shop-btn2 btn ml20" bindtap="examine" data-id="{{ item.id }}">审核通过</view>
+      </block>
+      <view wx:if="{{ item.sh_state == 1 }}" class="add-order-shop-txt f28 ml-auto">等待平台返利</view>
+      <view wx:if="{{ item.sh_state == 2 && (!item.platform_intervention) }}" class="add-order-shop-txt f28 ml-auto">订单已完成</view>
+      <view wx:if="{{ item.platform_status === '0' }}" class="add-order-shop-txt txt-red f28 ml-auto">平台介入中</view>
+      <block wx:if="{{ item.sh_state == 2 && item.platform_intervention }}" class="add-order-shop-txt txt-red f28 ml-auto">
+        <text class="ml-auto">订单已完成</text>
+        <text class="txt-red">（平台接入审核）</text>
+      </block>
+    </view>
+
+    <!-- 平台介入审核结果 -->
+    <view wx:if="{{ item.platform_status == -1 }}" class="info-remark w-con bg-white border-ra-16 mt30 txt-red">
+      <view class="info-remark-title flex-middle">
+        <text class="f30 FB">平台审核结果</text>
+      </view>
+      <view class="f26 mt30">申请被驳回：{{ item.refuse_content }}</view>
+    </view>
+    <view wx:if="{{ item.platform_status == 1 }}" class="info-remark w-con bg-white border-ra-16 mt30 txt-red">
+      <view class="info-remark-title flex-middle">
+        <text class="f30 FB">平台审核结果</text>
+      </view>
+      <view class="f26 mt30">申请通过：等待用户重新提交图片信息</view>
+    </view>
+  </view>
+
+  
+
+  <!-- 订单余量 -->
+  <view class="order-num w-con bg-white border-ra-16 mt30">
+    <view class="info-remark-title flex-middle">
+      <image class="info-remark-title-img" src="/static/images/order/yu_num.png" mode="widthFix" />
+      <text class="f30 FB">订单余量</text>
+    </view>
+    <view class="order-num-con flex-cover mt30">
+      <view class="order-num-con-e f22 txt-center">
+        剩余单量：{{ infoT.shengyu }} / {{ infoT.task_num }}
+      </view>
+      <view class="order-num-con-time flex">
+        距离结束时间：
+        <van-count-down use-slot myClass="order-num-con-time" time="{{ time }}" bind:change="changeTime">
+          {{ timeData.days }}天
+          {{ filters.toDouble(timeData.hours) }}:
+          {{ filters.toDouble(timeData.minutes) }}:
+          {{ filters.toDouble(timeData.seconds) }}
+        </van-count-down>
+      </view>
+    </view>
+  </view>
+
+  <!-- 活动规则 -->
+  <view class="info-rule info-remark w-con bg-white border-ra-16 mt30">
+    <view class="info-remark-title flex-middle">
+      <image class="info-remark-title-img" src="/static/images/order/rule.png" mode="widthFix" />
+      <text class="f30 FB">活动规则</text>
+    </view>
+   <view class="f26 mt30">{{ rule }}</view>
+  </view>
+
+  <!-- <view class="btn w-con mt30" bindtap="changeUser">切换用户类型</view> -->
+
+  <!-- 占位 -->
+  <view class="detail-blank"></view>
+
+  <!-- 底部固定 -->
+  <view class="detail-bottom w-con-p bg-white flex-middle txt-center">
+    <view >
+      <image class="detail-bottom-img" src="/static/images/order/shop_share.png" />
+      <text class="f24">\n分享</text>
+    </view>
+    <view class="ml20">
+      <image class="detail-bottom-img" src="/static/images/order/shop_serve.png" />
+      <text class="f24">\n客服</text>
+    </view>
+    <view class="detail-bottom-txt ml-auto FB f30">订单{{ type }}</view>
+  </view>
+
+  <login />
+
+</view>

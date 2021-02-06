@@ -1,0 +1,38 @@
+<!--components/busiList/busiList.wxml-->
+<!-- 商家订单列表 -->
+
+<view>
+  <view class="business-list bg-white border-ra-16 pr" wx:for="{{ list }}" wx:key="unique"
+    bindtap="toDetail" data-id="{{ item.openid }}" data-tid="{{ item.id }}">
+    
+    <!-- 作商家使用 -->
+    <view class="flex">
+      <!-- 图片 -->
+      <view class="business-list-img">
+        <image class="border-ra-16" src="{{ item.business.img }}" mode="aspectFill" />
+      </view>
+      <!-- 中间 -->
+      <view class="business-list-middle ml20">
+        <view class="business-list-middle-name f30">{{ item.business.business_name }}</view>
+        <view class="business-list-middle-num f20">剩余单量：<text class="FB f22">{{ item.shengyu_num }}</text>/{{ item.task_num }}</view>
+      </view>
+      <!-- 美团vs饿了么 -->
+      <view class="business-list-type">
+        <image wx:if="{{ item.elm_status == 1 }}" class="pa" src="/static/images/tabBar/eleme.png" />
+        <image wx:else class="pa" src="/static/images/tabBar/meituan.png" />
+      </view>
+      <view class="business-list-right pa f24 aaa txt-right">
+        <view>营业时间:{{ item.business.business_time }}</view>
+      </view>
+    </view>
+
+    
+    <!-- 作订单使用 -->
+    <view class="order-bottom flex-middle flex-cover">
+      <view class="f30 FB">
+        <text wx:if="{{item.task_type == 1}}">霸王餐</text>
+        <text wx:if="{{item.task_type == 2}}">返利餐</text>
+      </view>
+    </view>
+  </view>
+</view>
